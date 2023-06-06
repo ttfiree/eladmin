@@ -45,7 +45,7 @@ public class ColUtil {
      */
     public static PropertiesConfiguration getConfig() {
         try {
-            return new PropertiesConfiguration("generator.properties");
+            return new PropertiesConfiguration("C:\\Users\\Administrator\\IdeaProjects\\eladmin\\eladmin-system\\src\\main\\resources\\generator.properties");
         } catch (ConfigurationException e) {
             log.error(e.getMessage(), e);
         }

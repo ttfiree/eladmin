@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>me.zhengjie</groupId>
+        <artifactId>eladmin</artifactId>
+        <version>2.6</version>
+    </parent>
+    <groupId>me.zhengjie</groupId>
+    <artifactId>game</artifactId>
+    <name>游戏模块</name>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>me.zhengjie</groupId>
+            <artifactId>eladmin-tools</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <!-- devtools热部署依赖 -->
+      <!--  <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            &lt;!&ndash; 防止将依赖传递到其他模块中 &ndash;&gt;
+            <optional>true</optional>
+            &lt;!&ndash; 只在运行时起作用，打包时不打进去（防止线上执行打包后的程序，启动文件监听线程File Watcher，耗费大量的内存资源） &ndash;&gt;
+            <scope>runtime</scope>
+        </dependency>-->
+    </dependencies>
+
+</project>

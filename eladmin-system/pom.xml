@@ -38,6 +38,17 @@
             <artifactId>eladmin-tools</artifactId>
             <version>2.6</version>
         </dependency>
+        <dependency>
+            <groupId>me.zhengjie</groupId>
+            <artifactId>game</artifactId>
+            <version>2.6</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>me.zhengjie</groupId>
+                    <artifactId>eladmin-tools</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
         <!-- Spring boot websocket -->
 		<dependency>
@@ -94,6 +105,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
             </plugin>
             <!-- 跳过单元测试 -->
             <plugin>
@@ -101,6 +115,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <skipTests>true</skipTests>
+                    <!-- devtools依赖此配置（否则，devtools不生效）。 -->
                 </configuration>
             </plugin>
         </plugins>

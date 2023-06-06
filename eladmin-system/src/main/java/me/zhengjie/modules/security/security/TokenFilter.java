@@ -17,6 +17,7 @@ package me.zhengjie.modules.security.security;
 
 import cn.hutool.core.util.StrUtil;
 import io.jsonwebtoken.ExpiredJwtException;
+import me.zhengjie.exception.BadRequestException;
 import me.zhengjie.modules.security.config.bean.SecurityProperties;
 import me.zhengjie.modules.security.service.UserCacheManager;
 import me.zhengjie.modules.security.service.dto.OnlineUserDto;
@@ -33,7 +34,11 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
+
+import static org.apache.commons.codec.digest.MessageDigestAlgorithms.MD5;
 
 /**
  * @author /
@@ -65,6 +70,14 @@ public class TokenFilter extends GenericFilterBean {
             throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         String token = resolveToken(httpServletRequest);
+        try{
+           if(!checkSign(httpServletRequest)){
+               throw new BadRequestException("非法请求");
+           }
+        }catch (Exception e){
+            log.error(e.getMessage(),e);
+            throw new BadRequestException("非法请求");
+        }
         // 对于 Token 为空的不需要去查 Redis
         if (StrUtil.isNotBlank(token)) {
             OnlineUserDto onlineUserDto = null;
@@ -104,5 +117,37 @@ public class TokenFilter extends GenericFilterBean {
             log.debug("非法Token：{}", bearerToken);
         }
         return null;
+    }
+    /**
+     * 根据request的param和header中的timestamp进行md5加密然后和header中的sign比较验签
+     */
+    private boolean checkSign(HttpServletRequest request) throws NoSuchAlgorithmException {
+        //获取请求体
+        String headerSign = request.getHeader("sign");
+        String timestampStr = request.getHeader("timestamp");
+        String nonce = request.getHeader("nonce");
+        MessageDigest md5 = MessageDigest.getInstance(MD5);
+        if(byte2Hex(md5.digest((timestampStr+nonce+"utf-8").getBytes())).equals(headerSign)){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    /**
+     * 将byte数组转换为十六进制字符串
+     * @param bytes byte数组
+     * @return 十六进制字符串
+     */
+    private static String byte2Hex(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes) {
+            String hex = Integer.toHexString(b & 0xFF);
+            if (hex.length() == 1) {
+                sb.append("0");
+            }
+            sb.append(hex);
+        }
+        return sb.toString();
     }
 }
