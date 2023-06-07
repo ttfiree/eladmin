@@ -130,6 +130,10 @@ public class GameAttribute implements Serializable {
     @ApiModelProperty(value = "extDecimalFive")
     private BigDecimal extDecimalFive;
 
+    private Long mazeId;
+
+
+
     public void copy(GameAttribute source){
         BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
     }

@@ -89,4 +89,6 @@ public class GameAttributeDto implements Serializable {
 
     /** 移动速度 */
     private Integer speed;
+
+    private Integer mazeId;
 }

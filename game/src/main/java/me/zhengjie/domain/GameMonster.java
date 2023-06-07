@@ -24,6 +24,7 @@ import javax.validation.constraints.*;
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 import java.io.Serializable;
+import java.util.Random;
 
 /**
 * @website https://eladmin.vip
@@ -127,7 +128,67 @@ public class GameMonster implements Serializable {
     @ApiModelProperty(value = "生命值")
     private Integer hitPoints;
 
+    @Column(name = "`speed`",nullable = false)
+    @NotNull
+    @ApiModelProperty(value = "移动速度")
+    private Integer speed;
+
+    @Column(name = "`critical_chance`",nullable = false)
+    @NotNull
+    @ApiModelProperty(value = "暴击")
+    private BigDecimal criticalChance;
+
+    @Column(name = "`critical_damage`",nullable = false)
+    @NotNull
+    @ApiModelProperty(value = "爆伤")
+    private BigDecimal criticalDamage;
+
+    @Column(name = "`armor_class`",nullable = false)
+    @NotNull
+    @ApiModelProperty(value = "护甲值")
+    private Integer armorClass;
+
+    @Column(name = "`damage`",nullable = false)
+    @NotNull
+    @ApiModelProperty(value = "基础伤害")
+    private Integer damage;
     public void copy(GameMonster source){
         BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
+    }
+
+    public boolean isAlive() {
+        return hitPoints > 0;
+    }
+
+
+    public int attack() {
+        Random random = new Random();
+        if (random.nextDouble() < criticalChance.doubleValue()) { // 判断是否暴击
+            return (int) (damage * (1 + criticalDamage.doubleValue()));
+        } else {
+            return damage;
+        }
+    }
+
+    public int defense() {
+        return armorClass;
+    }
+
+    public void takeDamage(int damage) {
+        hitPoints -= damage;
+        if (hitPoints < 0) {
+            hitPoints = 0;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s：生命值%d/%d，攻击力%d，防御力%d，速度%.2f，暴击率%.2f，暴击伤害%.2f",
+                name, hitPoints,  damage, armorClass, speed, criticalChance, criticalDamage);
+    }
+
+    public boolean isCritical() {
+        Random random = new Random();
+        return random.nextDouble() < criticalChance.doubleValue();
     }
 }

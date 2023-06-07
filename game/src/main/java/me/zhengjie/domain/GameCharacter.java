@@ -24,6 +24,7 @@ import javax.validation.constraints.*;
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 import java.io.Serializable;
+import java.util.Random;
 
 /**
 * @website https://eladmin.vip
@@ -135,5 +136,11 @@ public class GameCharacter implements Serializable {
 
     public void copy(GameCharacter source){
         BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
+    }
+
+
+
+    public boolean isAlive() {
+        return hitPoints > 0;
     }
 }
