@@ -22,10 +22,10 @@ import me.zhengjie.annotation.Query;
 /**
 * @website https://eladmin.vip
 * @author lyc
-* @date 2023-06-12
+* @date 2023-06-20
 **/
 @Data
 public class GameMonsterQueryCriteria{
-    @Query
-    private Integer mazeId;
+    @Query(type = Query.Type.LESS_THAN)
+    private int level;
 }

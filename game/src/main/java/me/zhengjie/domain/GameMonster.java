@@ -15,22 +15,32 @@
 */
 package me.zhengjie.domain;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiModelProperty;
 import cn.hutool.core.bean.copier.CopyOptions;
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 import java.io.Serializable;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
 * @website https://eladmin.vip
 * @description /
 * @author lyc
-* @date 2023-06-12
+* @date 2023-06-20
 **/
 @Entity
 @Data
@@ -43,17 +53,17 @@ public class GameMonster implements Serializable {
     @ApiModelProperty(value = "怪物ID")
     private Integer id;
 
-    @Column(name = "`maze_id`",nullable = false)
+    @Column(name = "`maze_id`", nullable = false)
     @NotNull
     @ApiModelProperty(value = "迷宫ID")
     private Long mazeId;
 
-    @Column(name = "`create_time`",nullable = false)
+    @Column(name = "`create_time`", nullable = false)
     @NotNull
     @ApiModelProperty(value = "createTime")
     private Timestamp createTime;
 
-    @Column(name = "`is_delete`",nullable = false)
+    @Column(name = "`is_delete`", nullable = false)
     @NotNull
     @ApiModelProperty(value = "isDelete")
     private Integer isDelete;
@@ -98,32 +108,32 @@ public class GameMonster implements Serializable {
     @ApiModelProperty(value = "extDecimalFive")
     private BigDecimal extDecimalFive;
 
-    @Column(name = "`name`",nullable = false)
+    @Column(name = "`name`", nullable = false)
     @NotBlank
     @ApiModelProperty(value = "怪物名")
     private String name;
 
-    @Column(name = "`experience`",nullable = false)
+    @Column(name = "`experience`", nullable = false)
     @NotNull
     @ApiModelProperty(value = "经验值")
     private Long experience;
 
-    @Column(name = "`money`",nullable = false)
+    @Column(name = "`money`", nullable = false)
     @NotNull
     @ApiModelProperty(value = "金钱")
     private Long money;
 
-    @Column(name = "`item`",nullable = false)
+    @Column(name = "`item`", nullable = false)
     @NotNull
     @ApiModelProperty(value = "爆率")
     private Long item;
 
-    @Column(name = "`item_rate`",nullable = false)
+    @Column(name = "`item_rate`", nullable = false)
     @NotNull
     @ApiModelProperty(value = "爆率等级")
     private Long itemRate;
 
-    @Column(name = "`hit_points`",nullable = false)
+    @Column(name = "`hit_points`", nullable = false)
     @NotNull
     @ApiModelProperty(value = "生命值")
     private Integer hitPoints;
@@ -160,8 +170,28 @@ public class GameMonster implements Serializable {
     @ApiModelProperty(value = "类型")
     private Integer type;
 
-    public void copy(GameMonster source){
-        BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
+    @Column(name = "`min_hp`")
+    @ApiModelProperty(value = "最小生命值")
+    private Integer minHp;
+
+    @Column(name = "`AC`")
+    @ApiModelProperty(value = "准确率")
+    private Integer ac;
+
+    @Column(name = "`max_damage`")
+    @ApiModelProperty(value = "最大伤害")
+    private Integer maxDamage;
+
+    @Column(name = "`min_damage`")
+    @ApiModelProperty(value = "最小伤害")
+    private Integer minDamage;
+
+    @Column(name = "`max_hp`")
+    @ApiModelProperty(value = "最大生命值")
+    private Integer maxHp;
+
+    public void copy(GameMonster source) {
+        BeanUtil.copyProperties(source, this, CopyOptions.create().setIgnoreNullValue(true));
     }
 
 }

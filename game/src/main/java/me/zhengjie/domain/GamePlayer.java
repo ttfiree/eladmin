@@ -115,8 +115,8 @@ public class GamePlayer  implements Serializable {
 
     public int attack() {
         Random random = new Random();
-        if (random.nextDouble() < criticalChance.doubleValue()) { // 判断是否暴击
-            return (int) (damage * (1 + criticalDamage.doubleValue()));
+        if (random.nextDouble() < criticalChance.doubleValue()/100) { // 判断是否暴击
+            return (int) (damage * (1 + criticalDamage.doubleValue()/100));
         } else {
             return damage;
         }

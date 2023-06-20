@@ -41,7 +41,7 @@ import java.util.LinkedHashMap;
 * @website https://eladmin.vip
 * @description 服务实现
 * @author lyc
-* @date 2023-06-12
+* @date 2023-06-20
 **/
 @Service
 @RequiredArgsConstructor
@@ -123,6 +123,11 @@ public class GameMonsterServiceImpl implements GameMonsterService {
             map.put("等级", gameMonster.getLevel());
             map.put("是否是boss级别", gameMonster.getIsBoss());
             map.put("类型", gameMonster.getType());
+            map.put("最小生命值", gameMonster.getMinHp());
+            map.put("准确率", gameMonster.getAc());
+            map.put("最大伤害", gameMonster.getMaxDamage());
+            map.put("最小伤害", gameMonster.getMinDamage());
+            map.put("最大生命值", gameMonster.getMaxHp());
             list.add(map);
         }
         FileUtil.downloadExcel(list, response);

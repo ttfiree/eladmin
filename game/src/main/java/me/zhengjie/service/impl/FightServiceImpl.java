@@ -15,12 +15,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.math.BigDecimal.*;
 
 @Service
 @RequiredArgsConstructor
@@ -46,10 +49,17 @@ public class FightServiceImpl implements FightService {
     }
 
     public GameMonsterDto buildMonster(GameCharacterDto character){
-        GameAttributeDto attribute = gameAttributeService.findById(character.getId());
         GameMonsterQueryCriteria gameMonsterQueryCriteria = new GameMonsterQueryCriteria();
-        gameMonsterQueryCriteria.setMazeId(attribute.getMazeId());
-        return gameMonsterService.queryAll(gameMonsterQueryCriteria).get(0);
+        gameMonsterQueryCriteria.setLevel(5);
+        List<GameMonsterDto> gameMonsterDtos = gameMonsterService.queryAll(gameMonsterQueryCriteria);
+        //随机取其中一个
+        GameMonsterDto g = gameMonsterDtos.get((int)(Math.random()*gameMonsterDtos.size()));
+        int maxhp = g.getMaxHp();
+        int minhp = g.getMinHp();
+        //根据最大值最小值随机生成一个值
+        int hp = (int)(Math.random()*(maxhp-minhp+1))+minhp;
+        g.setHitPoints(hp);
+        return g;
     }
 
     public void fight(GamePlayer player, GameMonsterDto monster,GameResult gameResult) {
@@ -57,7 +67,6 @@ public class FightServiceImpl implements FightService {
         sb.append("人物属性：").append(player).append("END");
         sb.append("怪物属性：").append(monster).append("END");
         int mhp = monster.getHitPoints();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         // 进行战斗
         int round = 1;
         double playerProgress = 0; // 玩家攻击进度
@@ -131,13 +140,17 @@ public class FightServiceImpl implements FightService {
 // 打印战斗结果
         if (player.isAlive()) {
             sb.append("战斗结束，玩家胜利！").append("END");
+            gameResult.setWin(1);
         } else {
             sb.append("战斗结束，怪物胜利！").append("END");
+            gameResult.setWin(0);
         }
-        //计算经验值
-        expService.dealExpAfterBattle(player,monster,gameResult);
         gameResult.setBattleLog(sb.toString());
         gameResult.setBattleTime(usedTime);
+        //计算经验值
+        if(gameResult.getWin()==1){
+            expService.dealExpAfterBattle(player,monster,gameResult);
+        }
         long r;
         //计算恢复时间
         if(gameResult.getLevelUp()==1){
@@ -153,33 +166,12 @@ public class FightServiceImpl implements FightService {
     }
 
     private long recovery(GamePlayer player){
-        int lhp = player.getHitPoints() - player.getRPoints();
+        int lhp;
+        BigDecimal i = valueOf(player.getRPoints()).multiply(valueOf(100)).divide(valueOf(player.getHitPoints()));
+        lhp =  100-i.intValue();
         return lhp/2+10;
     }
 
-    public static void main(String[] args) {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            File jsonFile = new File("C:\\Users\\Administrator\\IdeaProjects\\eladmin\\game\\src\\main\\java\\me\\zhengjie\\content\\monsters.json");
-            JsonNode rootNode = mapper.readTree(jsonFile);
-            List<JsonNode> newNodes = new ArrayList<>();
-            List<String> sqlStatements = new ArrayList<>();
-
-            for (JsonNode node : rootNode) {
-                String key = node.get("Key").asText();
-                String zhCN = node.get("zhCN").asText();
-
-                // Generate the SQL statement for this record
-                String sql = "UPDATE game_monster SET name = '" + zhCN + "' WHERE ext_String_one = '" + key + "';";
-                sqlStatements.add(sql);
-            }
-            for (String sql : sqlStatements) {
-                System.out.println(sql);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 }
 

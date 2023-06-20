@@ -24,4 +24,6 @@ public class GameResult {
 
     private long exp;
 
+    private int win;
+
 }

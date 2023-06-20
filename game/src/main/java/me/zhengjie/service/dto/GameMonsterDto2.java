@@ -16,19 +16,20 @@
 package me.zhengjie.service.dto;
 
 import lombok.Data;
-import java.sql.Timestamp;
-import java.math.BigDecimal;
+
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Random;
 
 /**
 * @website https://eladmin.vip
 * @description /
 * @author lyc
-* @date 2023-06-20
+* @date 2023-06-12
 **/
 @Data
-public class GameMonsterDto implements Serializable {
+public class GameMonsterDto2 implements Serializable {
 
     /** 怪物ID */
     private Integer id;
@@ -102,53 +103,6 @@ public class GameMonsterDto implements Serializable {
     /** 类型 */
     private Integer type;
 
-    /** 最小生命值 */
-    private Integer minHp;
 
-    /** 准确率 */
-    private Integer ac;
 
-    /** 最大伤害 */
-    private Integer maxDamage;
-
-    /** 最小伤害 */
-    private Integer minDamage;
-
-    /** 最大生命值 */
-    private Integer maxHp;
-
-    public boolean isAlive() {
-        return hitPoints > 0;
-    }
-
-    public int attack() {
-        Random random = new Random();
-        if (random.nextDouble() < criticalChance.doubleValue()/100) { // 判断是否暴击
-            return (int) (damage * (1 + criticalDamage.doubleValue()/100));
-        } else {
-            return damage;
-        }
-    }
-
-    public int defense() {
-        return armorClass;
-    }
-
-    public void takeDamage(int damage) {
-        hitPoints -= damage;
-        if (hitPoints < 0) {
-            hitPoints = 0;
-        }
-    }
-
-    @Override
-    public String toString() {
-        return String.format(name+"：生命值"+hitPoints+"，攻击力"+damage+"，防御力"+armorClass+"，速度"+speed+"，暴击率"+criticalChance+"，暴击伤害"+ criticalDamage);
-
-    }
-
-    public boolean isCritical() {
-        Random random = new Random();
-        return random.nextDouble() < criticalChance.doubleValue();
-    }
 }

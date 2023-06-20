@@ -24,7 +24,7 @@ import org.mapstruct.ReportingPolicy;
 /**
 * @website https://eladmin.vip
 * @author lyc
-* @date 2023-06-12
+* @date 2023-06-20
 **/
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface GameMonsterMapper extends BaseMapper<GameMonsterDto, GameMonster> {

@@ -1,7 +1,7 @@
 package me.zhengjie.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
-import me.zhengjie.content.ExperienceMap;
+import me.zhengjie.content.DataMap;
 import me.zhengjie.domain.GameCharacter;
 import me.zhengjie.domain.GamePlayer;
 import me.zhengjie.domain.GameResult;
@@ -21,7 +21,7 @@ public class ExpServiceImpl implements ExpService {
         long exp = monster.getExperience();
         gameResult.setExp(exp);
         long expNow = player.getExperience();
-        long needExp = ExperienceMap.EXP_MAP.get(player.getLevel());
+        long needExp = DataMap.EXP_MAP.get(player.getLevel());
         if(exp+expNow>=needExp){
            int l =  player.getLevel();
            l++;
