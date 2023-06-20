@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 * @website https://eladmin.vip
 * @description 服务接口
 * @author lyc
-* @date 2023-06-06
+* @date 2023-06-12
 **/
 public interface GameAttributeService {
 

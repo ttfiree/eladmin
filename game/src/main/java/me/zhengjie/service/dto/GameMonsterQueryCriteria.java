@@ -22,10 +22,10 @@ import me.zhengjie.annotation.Query;
 /**
 * @website https://eladmin.vip
 * @author lyc
-* @date 2023-06-06
+* @date 2023-06-12
 **/
 @Data
 public class GameMonsterQueryCriteria{
     @Query
-    private long mazeId;
+    private Integer mazeId;
 }

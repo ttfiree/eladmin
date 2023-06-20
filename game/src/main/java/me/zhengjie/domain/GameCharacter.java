@@ -24,13 +24,12 @@ import javax.validation.constraints.*;
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 import java.io.Serializable;
-import java.util.Random;
 
 /**
 * @website https://eladmin.vip
 * @description /
 * @author lyc
-* @date 2023-06-05
+* @date 2023-06-12
 **/
 @Entity
 @Data
@@ -103,7 +102,6 @@ public class GameCharacter implements Serializable {
     @ApiModelProperty(value = "角色名")
     private String name;
 
-
     @Column(name = "`level`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "等级")
@@ -136,11 +134,5 @@ public class GameCharacter implements Serializable {
 
     public void copy(GameCharacter source){
         BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
-    }
-
-
-
-    public boolean isAlive() {
-        return hitPoints > 0;
     }
 }

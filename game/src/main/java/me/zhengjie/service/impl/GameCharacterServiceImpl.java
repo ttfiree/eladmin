@@ -16,7 +16,8 @@
 package me.zhengjie.service.impl;
 
 import me.zhengjie.domain.GameCharacter;
-import me.zhengjie.utils.*;
+import me.zhengjie.utils.ValidationUtil;
+import me.zhengjie.utils.FileUtil;
 import lombok.RequiredArgsConstructor;
 import me.zhengjie.repository.GameCharacterRepository;
 import me.zhengjie.service.GameCharacterService;
@@ -27,7 +28,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
+import me.zhengjie.utils.PageUtil;
+import me.zhengjie.utils.QueryHelp;
 import java.util.List;
 import java.util.Map;
 import java.io.IOException;
@@ -39,7 +41,7 @@ import java.util.LinkedHashMap;
 * @website https://eladmin.vip
 * @description 服务实现
 * @author lyc
-* @date 2023-06-05
+* @date 2023-06-12
 **/
 @Service
 @RequiredArgsConstructor
@@ -50,7 +52,6 @@ public class GameCharacterServiceImpl implements GameCharacterService {
 
     @Override
     public Map<String,Object> queryAll(GameCharacterQueryCriteria criteria, Pageable pageable){
-        criteria.setUserId(SecurityUtils.getCurrentUserId());
         Page<GameCharacter> page = gameCharacterRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),pageable);
         return PageUtil.toPage(page.map(gameCharacterMapper::toDto));
     }
@@ -66,6 +67,12 @@ public class GameCharacterServiceImpl implements GameCharacterService {
         GameCharacter gameCharacter = gameCharacterRepository.findById(id).orElseGet(GameCharacter::new);
         ValidationUtil.isNull(gameCharacter.getId(),"GameCharacter","id",id);
         return gameCharacterMapper.toDto(gameCharacter);
+    }
+    @Override
+    @Transactional
+    public GameCharacterDto findOne(GameCharacterQueryCriteria criteria) {
+        return gameCharacterMapper.toDto(gameCharacterRepository.findOne((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder)).get());
+
     }
 
     @Override
@@ -109,7 +116,6 @@ public class GameCharacterServiceImpl implements GameCharacterService {
             map.put(" extDecimalFour",  gameCharacter.getExtDecimalFour());
             map.put(" extDecimalFive",  gameCharacter.getExtDecimalFive());
             map.put("角色名", gameCharacter.getName());
-            map.put("职业", gameCharacter.getClass());
             map.put("等级", gameCharacter.getLevel());
             map.put("经验值", gameCharacter.getExperience());
             map.put("金钱", gameCharacter.getMoney());

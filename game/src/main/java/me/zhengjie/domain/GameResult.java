@@ -14,5 +14,14 @@ public class GameResult {
     @ApiModelProperty(value = "角色名")
     private String battleLog;
 
+    private long battleTime;
+
+    private long battleAgainTime;
+
+    private long revocery;
+
+    private int levelUp;
+
+    private long exp;
 
 }

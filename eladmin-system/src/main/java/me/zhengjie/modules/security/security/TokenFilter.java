@@ -71,7 +71,7 @@ public class TokenFilter extends GenericFilterBean {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         String token = resolveToken(httpServletRequest);
         try{
-           if(!checkSign(httpServletRequest)){
+           if(!(checkSign(httpServletRequest))){
                throw new BadRequestException("非法请求");
            }
         }catch (Exception e){

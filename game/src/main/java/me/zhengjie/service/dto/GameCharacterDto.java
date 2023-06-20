@@ -24,7 +24,7 @@ import java.io.Serializable;
 * @website https://eladmin.vip
 * @description /
 * @author lyc
-* @date 2023-06-05
+* @date 2023-06-12
 **/
 @Data
 public class GameCharacterDto implements Serializable {
@@ -61,7 +61,6 @@ public class GameCharacterDto implements Serializable {
 
     /** 角色名 */
     private String name;
-
 
     /** 等级 */
     private Integer level;

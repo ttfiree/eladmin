@@ -28,7 +28,7 @@ import java.io.Serializable;
 * @website https://eladmin.vip
 * @description /
 * @author lyc
-* @date 2023-06-06
+* @date 2023-06-12
 **/
 @Entity
 @Data
@@ -130,9 +130,29 @@ public class GameAttribute implements Serializable {
     @ApiModelProperty(value = "extDecimalFive")
     private BigDecimal extDecimalFive;
 
-    private Long mazeId;
+    @Column(name = "`hit_points`")
+    @ApiModelProperty(value = "生命值")
+    private Integer hitPoints;
 
+    @Column(name = "`armor_class`")
+    @ApiModelProperty(value = "护甲值")
+    private Integer armorClass;
 
+    @Column(name = "`mazeId`")
+    @ApiModelProperty(value = "迷宫id")
+    private Integer mazeId;
+
+    @Column(name = "`money_plus`")
+    @ApiModelProperty(value = "金钱加成")
+    private BigDecimal moneyPlus;
+
+    @Column(name = "`exp_plus`")
+    @ApiModelProperty(value = "经验加成")
+    private Double expPlus;
+
+    @Column(name = "`item_plus`")
+    @ApiModelProperty(value = "掉率加成")
+    private BigDecimal itemPlus;
 
     public void copy(GameAttribute source){
         BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));

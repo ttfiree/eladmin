@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 * @website https://eladmin.vip
 * @description 服务接口
 * @author lyc
-* @date 2023-06-05
+* @date 2023-06-12
 **/
 public interface GameCharacterService {
 
@@ -53,6 +53,7 @@ public interface GameCharacterService {
      * @return GameCharacterDto
      */
     GameCharacterDto findById(Integer id);
+    GameCharacterDto findOne(GameCharacterQueryCriteria criteria);
 
     /**
     * 创建

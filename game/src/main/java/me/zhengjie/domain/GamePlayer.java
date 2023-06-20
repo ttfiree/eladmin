@@ -22,6 +22,8 @@ public class GamePlayer  implements Serializable {
     @ApiModelProperty(value = "生命值")
     private Integer hitPoints;
 
+    private Integer rPoints;
+
     @Column(name = "`armor_class`",nullable = false)
     @NotNull
     @ApiModelProperty(value = "护甲值")
@@ -79,8 +81,36 @@ public class GamePlayer  implements Serializable {
     private BigDecimal criticalDamage;
 
 
+    /** 迷宫id */
+    private Integer mazeId;
+
+    /** 金钱加成 */
+    private BigDecimal moneyPlus;
+
+    /** 经验加成 */
+    private Double expPlus;
+
+    /** 掉率加成 */
+    private BigDecimal itemPlus;
+
+    @Column(name = "`level`",nullable = false)
+    @NotNull
+    @ApiModelProperty(value = "等级")
+    private Integer level;
+
+    @Column(name = "`experience`",nullable = false)
+    @NotNull
+    @ApiModelProperty(value = "经验值")
+    private Long experience;
+
+    @Column(name = "`money`",nullable = false)
+    @NotNull
+    @ApiModelProperty(value = "金钱")
+    private Long money;
+
+
     public boolean isAlive() {
-        return hitPoints > 0;
+        return rPoints > 0;
     }
 
     public int attack() {
@@ -97,16 +127,15 @@ public class GamePlayer  implements Serializable {
     }
 
     public void takeDamage(int damage) {
-        hitPoints -= damage;
-        if (hitPoints < 0) {
-            hitPoints = 0;
+        rPoints -= damage;
+        if (rPoints < 0) {
+            rPoints = 0;
         }
     }
 
     @Override
     public String toString() {
-        return String.format("%s：生命值%d/%d，攻击力%d，防御力%d，速度%.2f，暴击率%.2f，暴击伤害%.2f",
-                name, hitPoints,  damage, armorClass, speed, criticalChance, criticalDamage);
+        return String.format(name+"：生命值"+rPoints+"/"+hitPoints+"，攻击力"+damage+"，防御力"+armorClass+"，速度"+speed+"，暴击率"+criticalChance+"，暴击伤害"+ criticalDamage);
     }
 
     public boolean isCritical() {

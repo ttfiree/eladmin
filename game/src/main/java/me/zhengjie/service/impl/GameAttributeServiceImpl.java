@@ -41,7 +41,7 @@ import java.util.LinkedHashMap;
 * @website https://eladmin.vip
 * @description 服务实现
 * @author lyc
-* @date 2023-06-06
+* @date 2023-06-12
 **/
 @Service
 @RequiredArgsConstructor
@@ -116,6 +116,12 @@ public class GameAttributeServiceImpl implements GameAttributeService {
             map.put(" extDecimalThree",  gameAttribute.getExtDecimalThree());
             map.put(" extDecimalFour",  gameAttribute.getExtDecimalFour());
             map.put(" extDecimalFive",  gameAttribute.getExtDecimalFive());
+            map.put("生命值", gameAttribute.getHitPoints());
+            map.put("护甲值", gameAttribute.getArmorClass());
+            map.put("迷宫id", gameAttribute.getMazeId());
+            map.put("金钱加成", gameAttribute.getMoneyPlus());
+            map.put("经验加成", gameAttribute.getExpPlus());
+            map.put("掉率加成", gameAttribute.getItemPlus());
             list.add(map);
         }
         FileUtil.downloadExcel(list, response);

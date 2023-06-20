@@ -15,11 +15,7 @@
 */
 package me.zhengjie.service.dto;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 import java.io.Serializable;
@@ -29,7 +25,7 @@ import java.util.Random;
 * @website https://eladmin.vip
 * @description /
 * @author lyc
-* @date 2023-06-06
+* @date 2023-06-12
 **/
 @Data
 public class GameMonsterDto implements Serializable {
@@ -82,24 +78,34 @@ public class GameMonsterDto implements Serializable {
     /** 生命值 */
     private Integer hitPoints;
 
+    /** 速度 */
     private Integer speed;
 
+    /** 暴击率 */
+    private Integer criticalChance;
 
-    private BigDecimal criticalChance;
-
-
-    private BigDecimal criticalDamage;
-
-
+    /** 护甲 */
     private Integer armorClass;
 
-
+    /** 伤害 */
     private Integer damage;
+
+    /** 暴击伤害 */
+    private Integer criticalDamage;
+
+    /** 等级 */
+    private Integer level;
+
+    /** 是否是boss级别 */
+    private Integer isBoss;
+
+    /** 类型 */
+    private Integer type;
+
 
     public boolean isAlive() {
         return hitPoints > 0;
     }
-
 
     public int attack() {
         Random random = new Random();
@@ -123,8 +129,8 @@ public class GameMonsterDto implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("%s：生命值%d/%d，攻击力%d，防御力%d，速度%.2f，暴击率%.2f，暴击伤害%.2f",
-                name, hitPoints,  damage, armorClass, speed, criticalChance, criticalDamage);
+        return String.format(name+"：生命值"+hitPoints+"，攻击力"+damage+"，防御力"+armorClass+"，速度"+speed+"，暴击率"+criticalChance+"，暴击伤害"+ criticalDamage);
+
     }
 
     public boolean isCritical() {

@@ -22,7 +22,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 /**
 * @website https://eladmin.vip
 * @author lyc
-* @date 2023-06-06
+* @date 2023-06-12
 **/
 public interface GameAttributeRepository extends JpaRepository<GameAttribute, Integer>, JpaSpecificationExecutor<GameAttribute> {
 }

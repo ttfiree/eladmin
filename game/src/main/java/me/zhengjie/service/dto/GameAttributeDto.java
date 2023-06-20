@@ -23,7 +23,7 @@ import java.io.Serializable;
 * @website https://eladmin.vip
 * @description /
 * @author lyc
-* @date 2023-06-06
+* @date 2023-06-12
 **/
 @Data
 public class GameAttributeDto implements Serializable {
@@ -87,8 +87,15 @@ public class GameAttributeDto implements Serializable {
     /** 护甲值 */
     private Integer armorClass;
 
-    /** 移动速度 */
-    private Integer speed;
-
+    /** 迷宫id */
     private Integer mazeId;
+
+    /** 金钱加成 */
+    private BigDecimal moneyPlus;
+
+    /** 经验加成 */
+    private Double expPlus;
+
+    /** 掉率加成 */
+    private BigDecimal itemPlus;
 }
