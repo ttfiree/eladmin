@@ -1,5 +1,8 @@
 package me.zhengjie.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -14,16 +17,21 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.math.BigDecimal.*;
+import static nl.basjes.shaded.org.antlr.v4.runtime.misc.Utils.readFile;
 
 @Service
 @RequiredArgsConstructor
@@ -50,7 +58,7 @@ public class FightServiceImpl implements FightService {
 
     public GameMonsterDto buildMonster(GameCharacterDto character){
         GameMonsterQueryCriteria gameMonsterQueryCriteria = new GameMonsterQueryCriteria();
-        gameMonsterQueryCriteria.setLevel(5);
+        gameMonsterQueryCriteria.setLevelLess(5);
         List<GameMonsterDto> gameMonsterDtos = gameMonsterService.queryAll(gameMonsterQueryCriteria);
         //随机取其中一个
         GameMonsterDto g = gameMonsterDtos.get((int)(Math.random()*gameMonsterDtos.size()));
@@ -59,6 +67,11 @@ public class FightServiceImpl implements FightService {
         //根据最大值最小值随机生成一个值
         int hp = (int)(Math.random()*(maxhp-minhp+1))+minhp;
         g.setHitPoints(hp);
+        //随机生成攻击力
+        int maxatk = g.getMaxDamage();
+        int minatk = g.getMinDamage();
+        int atk = (int)(Math.random()*(maxatk-minatk+1))+minatk;
+        g.setDamage(atk);
         return g;
     }
 
@@ -170,6 +183,30 @@ public class FightServiceImpl implements FightService {
         BigDecimal i = valueOf(player.getRPoints()).multiply(valueOf(100)).divide(valueOf(player.getHitPoints()));
         lhp =  100-i.intValue();
         return lhp/2+10;
+    }
+
+    public static void main(String[] args) throws IOException {
+        //读取本地文件为字符串
+        File file = new File("F:\\下载\\D2R 1.0本地化文本\\strings\\item-nameaffixes.json");
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String s = null;
+        StringBuilder sb = new StringBuilder();
+        while ((s = br.readLine()) != null) {
+            sb.append(s);
+        }
+        //将json数组字符串转换为JSONArray对象
+        JSONArray jsonArray = JSONArray.parseArray(sb.toString());
+        //遍历json数组
+        for (int i = 0; i < jsonArray.size(); i++) {
+            //获取每一个JsonObject对象
+            JSONObject myjObject = jsonArray.getJSONObject(i);
+            //获取每一个对象中的值
+            String name = myjObject.getString("enUS");
+            String newName = myjObject.getString("zhCN");
+            //拼接为一个sql语句 update game_armors set name = newName where name = name; 并处理语句中的'符号
+            name = name.replace("'","''");
+            System.out.println("update game_affix set name = '"+newName+"' where name = '"+name+"';");
+        }
     }
 
 

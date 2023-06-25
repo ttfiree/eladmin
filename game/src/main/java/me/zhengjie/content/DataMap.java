@@ -1,5 +1,7 @@
 package me.zhengjie.content;
 
+import cn.hutool.json.JSONObject;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -7,14 +9,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.InputStream;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DataMap {
 
     public static final Map<Integer, Long> EXP_MAP;
     public static final Map<String, Integer> LEVEL_MAP;
+    public static final Map<String, Object> PROPERTY_MAP;
+
+    public static final Map<String, JSONObject> ITEM_STAT_MAP;
+    public static final Map<String, String> PATCH_MAP;
+    public static final Map<String, String> EXP2_MAP;
+    public static final Map<String, String> STRING_MAP;
     static {
         Map<Integer, Long> expMap = new HashMap<>();
         expMap.put(1, 0L);
@@ -119,144 +127,49 @@ public class DataMap {
 
         EXP_MAP = Collections.unmodifiableMap(expMap);
         ObjectMapper mapper = new ObjectMapper();
-       String json = "{\n" +
-               "  \"库拉斯特上层区\": 81,\n" +
-               "  \"世界之石要塞三层\": 130,\n" +
-               "  \"鲜血荒地\": 2,\n" +
-               "  \"古代水道\": 65,\n" +
-               "  \"外侧回廊\": 27,\n" +
-               "  \"监牢一层\": 29,\n" +
-               "  \"库拉斯特堤道\": 82,\n" +
-               "  \"修道院大门\": 26,\n" +
-               "  \"外域荒原\": 104,\n" +
-               "  \"崔斯特姆\": 38,\n" +
-               "  \"沼泽陷坑三层\": 90,\n" +
-               "  \"亚巴顿\": 125,\n" +
-               "  \"邪恶洞穴\": 8,\n" +
-               "  \"沃特大厅\": 124,\n" +
-               "  \"蜘蛛森林\": 76,\n" +
-               "  \"监牢二层\": 30,\n" +
-               "  \"漂流洞窟\": 116,\n" +
-               "  \"利爪蝮蛇神殿\": 61,\n" +
-               "  \"沼泽陷坑\": 86,\n" +
-               "  \"剥皮魔监牢\": 88,\n" +
-               "  \"地下通道一层\": 10,\n" +
-               "  \"憎恨囚牢\": 101,\n" +
-               "  \"寝陵\": 19,\n" +
-               "  \"亚瑞特高原\": 112,\n" +
-               "  \"地下通道二层\": 14,\n" +
-               "  \"高塔地窖四层\": 24,\n" +
-               "  \"碎石荒野\": 41,\n" +
-               "  \"库拉斯特海港\": 75,\n" +
-               "  \"地下墓穴四层\": 37,\n" +
-               "  \"被遗忘的藏骨室\": 96,\n" +
-               "  \"女眷住处二层\": 51,\n" +
-               "  \"墓穴\": 18,\n" +
-               "  \"冰冻之河\": 114,\n" +
-               "  \"混沌避难所\": 108,\n" +
-               "  \"废弃的礼拜堂\": 95,\n" +
-               "  \"群蛇峡谷\": 45,\n" +
-               "  \"炼狱深渊\": 127,\n" +
-               "  \"利爪腹蛇神庙二层\": 61,\n" +
-               "  \"亡者大殿\": 56,\n" +
-               "  \"先祖之路\": 118,\n" +
-               "  \"神秘避难所\": 74,\n" +
-               "  \"女眷住处一层\": 50,\n" +
-               "  \"火焰之河\": 107,\n" +
-               "  \"蛆虫巢穴三层\": 64,\n" +
-               "  \"蜘蛛洞穴\": 85,\n" +
-               "  \"毁灭的神庙\": 94,\n" +
-               "  \"黑色沼泽\": 6,\n" +
-               "  \"大教堂\": 33,\n" +
-               "  \"法师峡谷\": 46,\n" +
-               "  \"沼泽陷坑二层\": 87,\n" +
-               "  \"黑暗森林\": 5,\n" +
-               "  \"被遗忘的高塔\": 20,\n" +
-               "  \"监牢三层\": 31,\n" +
-               "  \"埋骨之地\": 17,\n" +
-               "  \"痛楚大厅\": 122,\n" +
-               "  \"毁灭的礼拜堂\": 98,\n" +
-               "  \"水晶通道\": 113,\n" +
-               "  \"沼泽陷坑一层\": 86,\n" +
-               "  \"泰摩高地\": 7,\n" +
-               "  \"高塔地窖五层\": 25,\n" +
-               "  \"洞坑二层\": 15,\n" +
-               "  \"憎恨囚牢一层\": 100,\n" +
-               "  \"利爪蝮蛇神殿一层\": 58,\n" +
-               "  \"深坑一层\": 12,\n" +
-               "  \"失落之城\": 44,\n" +
-               "  \"高塔地窖二层\": 22,\n" +
-               "  \"神罚之城\": 106,\n" +
-               "  \"哈洛加斯\": 109,\n" +
-               "  \"碎石古墓\": 59,\n" +
-               "  \"蛆虫巢穴一层\": 62,\n" +
-               "  \"混沌要塞\": 103,\n" +
-               "  \"剥皮魔监牢一层\": 88,\n" +
-               "  \"被遗忘的神殿\": 97,\n" +
-               "  \"憎恨囚牢三层\": 102,\n" +
-               "  \"剥皮魔监牢二层\": 89,\n" +
-               "  \"蛆虫巢穴二层\": 63,\n" +
-               "  \"血腥丘陵\": 110,\n" +
-               "  \"洞坑一层\": 11,\n" +
-               "  \"石块旷野\": 4,\n" +
-               "  \"洞穴二层\": 13,\n" +
-               "  \"冰冷之原\": 3,\n" +
-               "  \"阿克隆深渊\": 126,\n" +
-               "  \"高塔地窖三层\": 23,\n" +
-               "  \"内侧回廊\": 32,\n" +
-               "  \"营房\": 28,\n" +
-               "  \"世界之石大殿\": 132,\n" +
-               "  \"神秘的奶牛关\": 39,\n" +
-               "  \"巨蛛巢穴\": 84,\n" +
-               "  \"流亡者营地\": 1,\n" +
-               "  \"王宫监牢三层\": 54,\n" +
-               "  \"高塔地窖一层\": 21,\n" +
-               "  \"下水道一层\": 92,\n" +
-               "  \"洞穴一层\": 9,\n" +
-               "  \"憎恨囚牢二层\": 101,\n" +
-               "  \"下水道二层\": 93,\n" +
-               "  \"亡者大殿三层\": 60,\n" +
-               "  \"蛆虫巢穴\": 64,\n" +
-               "  \"库拉斯特下层区\": 79,\n" +
-               "  \"冰冻高地\": 111,\n" +
-               "  \"庞大湿地\": 77,\n" +
-               "  \"尼拉塞克的神殿\": 121,\n" +
-               "  \"女眷住处\": 51,\n" +
-               "  \"王宫监牢一层\": 52,\n" +
-               "  \"冰川小径\": 115,\n" +
-               "  \"亚瑞特之巅\": 120,\n" +
-               "  \"绝望平原\": 105,\n" +
-               "  \"亡者大殿一层\": 56,\n" +
-               "  \"地下墓穴三层\": 36,\n" +
-               "  \"库拉斯特集市\": 80,\n" +
-               "  \"王宫监牢二层\": 53,\n" +
-               "  \"下水道三层\": 49,\n" +
-               "  \"下水道\": 93,\n" +
-               "  \"亡者大殿二层\": 57,\n" +
-               "  \"王宫监牢\": 52,\n" +
-               "  \"废弃的藏骨室\": 99,\n" +
-               "  \"鲁·高因\": 40,\n" +
-               "  \"世界之石要塞二层\": 129,\n" +
-               "  \"干燥高地\": 42,\n" +
-               "  \"毁灭王座\": 131,\n" +
-               "  \"世界之石要塞一层\": 128,\n" +
-               "  \"碎石古墓二层\": 59,\n" +
-               "  \"偏远绿洲\": 43,\n" +
-               "  \"地下墓穴二层\": 35,\n" +
-               "  \"冰冻苔原\": 117,\n" +
-               "  \"碎石古墓一层\": 55,\n" +
-               "  \"崔凡克\": 83,\n" +
-               "  \"剥皮魔监牢三层\": 91,\n" +
-               "  \"剥皮魔丛林\": 78,\n" +
-               "  \"地下墓穴一层\": 34,\n" +
-               "  \"深坑二层\": 16,\n" +
-               "  \"寒冰地窖\": 119\n" +
-               "}\n";
+        InputStream inputStream = JsonParser.class.getClassLoader().getResourceAsStream("map.json");
         try {
-            Map<String, Integer> map = mapper.readValue(json, new TypeReference<Map<String, Integer>>(){});
-            LEVEL_MAP = Collections.unmodifiableMap(map);
+            LEVEL_MAP = Collections.unmodifiableMap(mapper.readValue(inputStream, new TypeReference<Map<String, Integer>>(){}));
         } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        inputStream = JsonParser.class.getClassLoader().getResourceAsStream("properties.json");
+
+        // 将JSON文件解析为JSON对象
+        mapper = new ObjectMapper();
+        try {
+            PROPERTY_MAP = Collections.unmodifiableMap(mapper.readValue(inputStream, new TypeReference<Map<String, Map<String, Object>>>(){}));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        inputStream = JsonParser.class.getClassLoader().getResourceAsStream("itemStat.json");
+
+        // 将inputStream解析为JSON对象的list
+        mapper = new ObjectMapper();
+        try {
+           List<JSONObject> ITEM_STAT_LIST = Collections.unmodifiableList(mapper.readValue(inputStream, new TypeReference<List<JSONObject>>(){}));
+           // 将list转换为map
+              ITEM_STAT_MAP = ITEM_STAT_LIST.stream().collect(Collectors.toMap(item -> item.get("item_id").toString(), item -> item));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        inputStream = JsonParser.class.getClassLoader().getResourceAsStream("patch.json");
+        mapper = new ObjectMapper();
+        try {
+            PATCH_MAP = Collections.unmodifiableMap(mapper.readValue(inputStream, new TypeReference<Map<String, String>>(){}));
+            inputStream = JsonParser.class.getClassLoader().getResourceAsStream("exp.json");
+            mapper = new ObjectMapper();
+            EXP2_MAP = Collections.unmodifiableMap(mapper.readValue(inputStream, new TypeReference<Map<String, String>>(){}));
+            inputStream = JsonParser.class.getClassLoader().getResourceAsStream("string.json");
+            mapper = new ObjectMapper();
+            STRING_MAP = Collections.unmodifiableMap(mapper.readValue(inputStream, new TypeReference<Map<String, String>>(){}));
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+
 }

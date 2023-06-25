@@ -22,11 +22,8 @@ import me.zhengjie.annotation.Query;
 /**
 * @website https://eladmin.vip
 * @author lyc
-* @date 2023-06-20
+* @date 2023-06-22
 **/
 @Data
-public class GameMonsterQueryCriteria{
-
-    @Query(type = Query.Type.LESS_THAN,propName = "level")
-    private Integer levelLess;
+public class GameWeaponsQueryCriteria{
 }

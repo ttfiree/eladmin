@@ -13,20 +13,16 @@
 *  See the License for the specific language governing permissions and
 *  limitations under the License.
 */
-package me.zhengjie.service.dto;
+package me.zhengjie.repository;
 
-import lombok.Data;
-import java.util.List;
-import me.zhengjie.annotation.Query;
+import me.zhengjie.domain.GameWeapons;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 /**
 * @website https://eladmin.vip
 * @author lyc
-* @date 2023-06-20
+* @date 2023-06-22
 **/
-@Data
-public class GameMonsterQueryCriteria{
-
-    @Query(type = Query.Type.LESS_THAN,propName = "level")
-    private Integer levelLess;
+public interface GameWeaponsRepository extends JpaRepository<GameWeapons, Integer>, JpaSpecificationExecutor<GameWeapons> {
 }

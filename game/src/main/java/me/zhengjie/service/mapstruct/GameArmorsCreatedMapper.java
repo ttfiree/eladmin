@@ -13,20 +13,20 @@
 *  See the License for the specific language governing permissions and
 *  limitations under the License.
 */
-package me.zhengjie.service.dto;
+package me.zhengjie.service.mapstruct;
 
-import lombok.Data;
-import java.util.List;
-import me.zhengjie.annotation.Query;
+import me.zhengjie.base.BaseMapper;
+import me.zhengjie.domain.GameArmorsCreated;
+import me.zhengjie.service.dto.GameArmorsCreatedDto;
+import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
 
 /**
 * @website https://eladmin.vip
 * @author lyc
-* @date 2023-06-20
+* @date 2023-06-22
 **/
-@Data
-public class GameMonsterQueryCriteria{
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface GameArmorsCreatedMapper extends BaseMapper<GameArmorsCreatedDto, GameArmorsCreated> {
 
-    @Query(type = Query.Type.LESS_THAN,propName = "level")
-    private Integer levelLess;
 }
