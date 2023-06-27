@@ -3,10 +3,13 @@ package me.zhengjie.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.RequiredArgsConstructor;
+import me.zhengjie.content.DataMap;
 import me.zhengjie.domain.*;
 import me.zhengjie.service.ExpService;
 import me.zhengjie.service.FightService;
@@ -17,18 +20,15 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static java.math.BigDecimal.*;
 import static nl.basjes.shaded.org.antlr.v4.runtime.misc.Utils.readFile;
@@ -52,6 +52,7 @@ public class FightServiceImpl implements FightService {
         BeanUtils.copyProperties(attribute,player);
         BeanUtils.copyProperties(character,player);
         player.setRPoints(player.getHitPoints());
+        player.setCharId(character.getId());
         return player;
 
     }
@@ -154,6 +155,7 @@ public class FightServiceImpl implements FightService {
         if (player.isAlive()) {
             sb.append("战斗结束，玩家胜利！").append("END");
             gameResult.setWin(1);
+            player.setItem(monster.getItem());
         } else {
             sb.append("战斗结束，怪物胜利！").append("END");
             gameResult.setWin(0);
@@ -187,7 +189,7 @@ public class FightServiceImpl implements FightService {
 
     public static void main(String[] args) throws IOException {
         //读取本地文件为字符串
-        File file = new File("F:\\下载\\D2R 1.0本地化文本\\strings\\item-nameaffixes.json");
+        File file = new File("C:\\Users\\Administrator\\IdeaProjects\\eladmin\\eladmin-system\\src\\main\\resources\\itemStat.json");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String s = null;
         StringBuilder sb = new StringBuilder();
@@ -201,13 +203,51 @@ public class FightServiceImpl implements FightService {
             //获取每一个JsonObject对象
             JSONObject myjObject = jsonArray.getJSONObject(i);
             //获取每一个对象中的值
-            String name = myjObject.getString("enUS");
-            String newName = myjObject.getString("zhCN");
-            //拼接为一个sql语句 update game_armors set name = newName where name = name; 并处理语句中的'符号
-            name = name.replace("'","''");
-            System.out.println("update game_affix set name = '"+newName+"' where name = '"+name+"';");
+            myjObject.put("maxvalue",100);
         }
+        System.out.println(jsonArray);
     }
+
+/*    public static void main(String[] args) throws IOException {
+        File file = new File("C:\\Users\\Administrator\\IdeaProjects\\eladmin\\eladmin-system\\src\\main\\resources\\itemStat.json");
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String s = null;
+        StringBuilder sb = new StringBuilder();
+        while ((s = br.readLine()) != null) {
+            sb.append(s);
+        }
+        //将json数组字符串转换为JSONArray对象
+        List<JSONObject> jsonArray = JSONArray.parseArray(sb.toString(), JSONObject.class);
+        ObjectMapper mapper = new ObjectMapper();
+        File file2 = new File("C:\\Users\\Administrator\\IdeaProjects\\eladmin\\eladmin-system\\src\\main\\resources\\patch.json");
+        InputStream inputStream = file2.toURI().toURL().openStream();
+        mapper = new ObjectMapper();
+            Map<String, String> PATCH_MAP = Collections.unmodifiableMap(mapper.readValue(inputStream, new TypeReference<Map<String, String>>(){}));
+        File file3 = new File("C:\\Users\\Administrator\\IdeaProjects\\eladmin\\eladmin-system\\src\\main\\resources\\exp.json");
+            inputStream = file3.toURI().toURL().openStream();
+            mapper = new ObjectMapper();
+            Map<String, String> EXP2_MAP = Collections.unmodifiableMap(mapper.readValue(inputStream, new TypeReference<Map<String, String>>(){}));
+        File file4 = new File("C:\\Users\\Administrator\\IdeaProjects\\eladmin\\eladmin-system\\src\\main\\resources\\string.json");
+
+        inputStream = file4.toURI().toURL().openStream();
+            mapper = new ObjectMapper();
+            Map<String, String> STRING_MAP = Collections.unmodifiableMap(mapper.readValue(inputStream, new TypeReference<Map<String, String>>(){}));
+        //遍历json数组
+        for (int i = 0; i < jsonArray.size(); i++) {
+            String lValue = PATCH_MAP.get(jsonArray.get(i).get("descstrpos"));
+
+            if ( lValue == null )
+            {
+                lValue = EXP2_MAP.get(jsonArray.get(i).get("descstrpos"));
+                if ( lValue == null )
+                {
+                    lValue = STRING_MAP.get(jsonArray.get(i).get("descstrpos"));
+                }
+            }
+            jsonArray.get(i).putOnce("desnew",lValue);
+        }
+        System.out.println(jsonArray.toString());
+    }*/
 
 
 }

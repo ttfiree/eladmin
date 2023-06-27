@@ -232,6 +232,8 @@ public class GameArmorsDto implements Serializable {
 
     private List<String> statsHtml;
 
+    private Integer charId;
+
     public boolean isShield() {
         if (type != null) {
             if (type.equals("ashd") || type.equals("shie")

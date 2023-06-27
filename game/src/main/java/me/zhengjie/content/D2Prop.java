@@ -1,22 +1,22 @@
 /*******************************************************************************
- * 
+ *
  * Copyright 2009 Silospen
- * 
+ *
  * This file is part of gomule.
- * 
+ *
  * gomule is free software; you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
- * 
+ *
  * gomule is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
  * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * gomlue; if not, write to the Free Software Foundation, Inc., 51 Franklin St,
  * Fifth Floor, Boston, MA 02110-1301 USA
- *  
+ *
  ******************************************************************************/
 
 package me.zhengjie.content;
@@ -122,6 +122,10 @@ public class D2Prop {
 	public String generateDisplay(int qFlag, int cLvl) {
 
 		String oString = D2TblFile.getString(DataMap.ITEM_STAT_MAP.get(String.valueOf(pNum)).get("descstrpos").toString());
+		/*//替换%+d
+		if(oString.contains("%+d")){
+			oString = oString.replaceAll("%\\+d", Integer.toString(pVals[0]));
+		}*/
 		if(funcN == 0){
 
 			if(DataMap.ITEM_STAT_MAP.get(String.valueOf(pNum)).get("descfunc") != null && ! DataMap.ITEM_STAT_MAP.get(String.valueOf(pNum)).get("descfunc").equals("")){
@@ -141,7 +145,7 @@ public class D2Prop {
 		}else if(pNum == 92){
 			oString = "Required Level";
 			funcN = 1;
-			dispLoc = 2;	
+			dispLoc = 2;
 		}else if(pNum == 356){
 			funcN = 40;
 		}else if(pNum == 26 || pNum == 8){
@@ -163,7 +167,7 @@ public class D2Prop {
 		case(1):
 			if(dispLoc == 1){
 				if(oString.indexOf("%d") != -1){
-					return oString.replaceAll("%d", Integer.toString(pVals[0]));	
+					return oString.replaceAll("%d", Integer.toString(pVals[0]));
 				}else{
 					if(pVals[0] > -1){
 						return "+" + pVals[0]+ " " + oString;
@@ -216,7 +220,7 @@ public class D2Prop {
 			}else if(dispLoc == 2){
 
 				if(pVals[0] > -1){
-					return oString + " +" + pVals[0]+"%" ;
+					return  oString.replaceAll("%\\+d", Integer.toString(pVals[0])) ;
 				}else{
 					return oString + " " +  pVals[0]+"%" ;
 				}
@@ -368,7 +372,7 @@ public class D2Prop {
 		case(35):
 
 			if(pVals[0] == pVals[1]){
-				return "Adds " + pVals[0] + " Cold Damage Over " + Math.round((double)pVals[2]/25.0) + " Secs (" + pVals[2] + " Frames)";	
+				return "Adds " + pVals[0] + " Cold Damage Over " + Math.round((double)pVals[2]/25.0) + " Secs (" + pVals[2] + " Frames)";
 			}
 
 		return "Adds " + pVals[0] + " - " + pVals[1] + " Cold Damage Over " + Math.round((double)pVals[2]/25.0) + " Secs (" + pVals[2] + " Frames)";
@@ -512,7 +516,7 @@ public class D2Prop {
 
 	public void addPVals(int[] newVals) {
 
-//		Poison length needs to keep track of the number of properties contributing to it. 
+//		Poison length needs to keep track of the number of properties contributing to it.
 //		Therefore, [2] becomes the counter.
 		if(getPNum() == 59){
 
@@ -522,7 +526,7 @@ public class D2Prop {
 			if(newVals.length < 2){
 				newVals = new int[]{newVals[0], newVals[0], 0};
 			}
-			
+
 			if(pVals[2] == 0){
 				pVals  = new int[]{pVals[0], pVals[1], 1};
 			}
@@ -552,7 +556,7 @@ public class D2Prop {
 				return 69;
 			}
 			return 0;
-		}else{		
+		}else{
 			return Integer.parseInt(DataMap.ITEM_STAT_MAP.get(String.valueOf(pNum)).get("descpriority").toString());
 		}
 	}
@@ -565,10 +569,10 @@ public class D2Prop {
 		}else{
 			if(qFlag != 12 && qFlag != 13 && qFlag != 14 && qFlag != 15 && qFlag != 16)return;
 		}
-		
+
 
 		/**
-		 *0 Str 0 
+		 *0 Str 0
 		 *1 Str/lvl 220
 		 *2 En 1
 		 *3 En/lvl 222
@@ -580,7 +584,7 @@ public class D2Prop {
 		 *9 HP/lvl 216
 		 *10 Mana 9
 		 *11 Mana/Lvl 217
-		 *12 Stam 11 
+		 *12 Stam 11
 		 *13 Stam/lvl 242
 		 *14 AR 19
 		 *15 AR/% 119
@@ -588,7 +592,7 @@ public class D2Prop {
 		 *17 AR/%/Lvl 225
 		 *18 FR 39
 		 *19 LR 41
-		 *20 CR 43 
+		 *20 CR 43
 		 *21 PR 45
 		 *22 MF 80
 		 *23 MF/Lvl 240

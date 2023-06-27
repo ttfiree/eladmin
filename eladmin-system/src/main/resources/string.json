@@ -1527,7 +1527,7 @@
   "ModStr1r": "%+d 最小闪电伤害",
   "ModStr1s": "%+d 最大冰霜伤害",
   "AkaraGossip11": "41\nEven though the corrupted ones were \nonce of our Order, you need not shy \nfrom slaying them, for they stand \nbetween you and Andariel.\n \nPerhaps, when the Demon Queen is \ndead, our Sisters will return to life, but \nmore likely they will be forever bound \nto their unholy pact.\n",
-  "ModStr1x": "%d%% 额外几率获得魔法物品",
+  "ModStr1x": "% 额外几率获得魔法物品",
   "AkaraGossip10": "59\nBeware that you do not suffer the fate \nof the corrupted Rogues. To lose one's \nlife is a tragedy, but to lose one's soul \nis even worse.\n",
   "ModStr1y": "击退",
   "A2Q4EarlyReturnGeglash": "49\nAll my years of brawling, of pummeling \nboth the unsuspecting and the \ndeserving, have yielded two insights. \nYou can either fight or you can run. All \nother strategies are variations of \nthese.\n",

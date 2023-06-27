@@ -108,6 +108,10 @@ public class GamePlayer  implements Serializable {
     @ApiModelProperty(value = "金钱")
     private Long money;
 
+    private Integer charId;
+
+    private Long item;
+
 
     public boolean isAlive() {
         return rPoints > 0;

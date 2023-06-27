@@ -45,8 +45,6 @@ public class GameBattleController {
     @PostMapping(value = "/battle")
     @AnonymousAccess
     public GameResult exportGameAttribute(@Validated @RequestBody GameCharacter resources) throws IOException {
-        GameArmorsDto sb = gameItemService.createItem();
-        System.out.println(sb.toString());
         Long userId = SecurityUtils.getCurrentUserId();
         GameCharacterQueryCriteria gameCharacterQueryCriteria = new GameCharacterQueryCriteria();
         gameCharacterQueryCriteria.setUserId(userId);
@@ -62,8 +60,12 @@ public class GameBattleController {
     @PostMapping(value = "/drop")
     @AnonymousAccess
     public GameArmorsDto drop() throws IOException {
-        GameArmorsDto sb = gameItemService.createItem();
-        return sb;
+        Long userId = SecurityUtils.getCurrentUserId();
+        GameCharacterQueryCriteria gameCharacterQueryCriteria = new GameCharacterQueryCriteria();
+        gameCharacterQueryCriteria.setUserId(userId);
+        GameCharacterDto character = gameCharacterService.findOne(gameCharacterQueryCriteria);
+        GamePlayer player = fightService.buildPlayer(character);
+        return gameItemService.createItem(player);
     }
     @Log("地图")
     @ApiOperation("地图")

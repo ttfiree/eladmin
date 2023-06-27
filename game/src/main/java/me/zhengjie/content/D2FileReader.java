@@ -1,31 +1,25 @@
 /*******************************************************************************
- * 
+ *
  * Copyright 2007 Randall (oriniginal the Flavie Reader)
- * 
+ *
  * This file is part of gomule.
- * 
+ *
  * gomule is free software; you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
- * 
+ *
  * gomule is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
  * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * gomlue; if not, write to the Free Software Foundation, Inc., 51 Franklin St,
  * Fifth Floor, Boston, MA 02110-1301 USA
- *  
+ *
  ******************************************************************************/
 package me.zhengjie.content;
 
-
-import jdk.internal.loader.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,7 +35,7 @@ public class D2FileReader
 
 //	private String	iFileName;
 	protected byte	iBuffer[];
-	
+
 	private int		iCounterPos = 0;
 	private int		iCounterBit = 0;
 
@@ -68,7 +62,7 @@ public class D2FileReader
 	{
 	    iBuffer = pBuffer;
 	}
-	
+
 	public void increaseCounter(int pNrBits)
 	{
 		for ( int i = 0 ; i < pNrBits ; i++ )
@@ -81,23 +75,23 @@ public class D2FileReader
 			}
 		}
 	}
-	
+
 	public int getCounterPos()
 	{
 	    return iCounterPos;
 	}
-	
+
 	public int getCounterBit()
 	{
 	    return iCounterBit;
 	}
-	
+
 	public void setCounter(int pCharPos, int pBitNr)
 	{
 		iCounterPos = pCharPos;
 		iCounterBit = pBitNr;
 	}
-	
+
 	public boolean getCounterBoolean()
 	{
 		int lNr = 1;
@@ -105,17 +99,17 @@ public class D2FileReader
 		{
 			lNr = lNr << iCounterBit;
 		}
-		
+
 		boolean lBoolean =  ((iBuffer[iCounterPos] & lNr) > 0);
-		
+
 		increaseCounter(1);
 		return lBoolean;
 	}
-	
+
 	public String getCounterString()
 	{
 	    StringBuffer lBuffer = new StringBuffer();
-	    
+
 	    int lInt = 0;
 	    try
 	    {
@@ -137,13 +131,13 @@ public class D2FileReader
 		        lInt = 0;
 		    }
 	    }
-	    
+
 	    return lBuffer.toString();
 	}
 	public String getCounterString(int pCharNr)
 	{
 		char lBuffer[] = new char[pCharNr];
-		
+
 		for ( int lCharNr = 0 ; lCharNr < pCharNr ; lCharNr ++ )
 		{
 			lBuffer[lCharNr] = 0;
@@ -166,18 +160,18 @@ public class D2FileReader
 
 		return new String(lBuffer);
 	}
-	
+
 	public long getCounterLong(int pBitNr)
 	{
 		long lInt = 0;
-		
+
 		boolean lIntCount[] = new boolean[pBitNr];
-		
+
 		for ( int i = 0 ; i < pBitNr ; i++ )
 		{
 			lIntCount[i] = getCounterBoolean();
 		}
-		
+
 		for ( int i = pBitNr-1 ; i >= 0 ; i-- )
 		{
 			lInt = lInt << 1;
@@ -185,24 +179,24 @@ public class D2FileReader
 			{
 				lInt++;
 			}
-			
+
 		}
-		
+
 		return lInt;
 	}
-	
-	
+
+
 	public int getCounterInt(int pBitNr)
 	{
 		int lInt = 0;
-		
+
 		boolean lIntCount[] = new boolean[pBitNr];
-		
+
 		for ( int i = 0 ; i < pBitNr ; i++ )
 		{
 			lIntCount[i] = getCounterBoolean();
 		}
-		
+
 		for ( int i = pBitNr-1 ; i >= 0 ; i-- )
 		{
 			lInt = lInt << 1;
@@ -210,12 +204,12 @@ public class D2FileReader
 			{
 				lInt++;
 			}
-			
+
 		}
-		
+
 		return lInt;
 	}
-	
-	
-	
+
+
+
 }

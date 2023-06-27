@@ -1,1471 +1,399 @@
 [
   {
-    "item_id": 0,
+    "descstrpos": "ModStr1a",
     "Stat": "strength",
+    "maxvalue": 100,
+    "item_id": 0,
+    "desnew": "value 力量",
     "descpriority": 67,
-    "descfunc": 1,
     "descval": 1,
-    "descstrpos": "ModStr1a",
-    "descstr2": null
+    "descfunc": 1,
+    "column": "str"
   },
   {
-    "item_id": 1,
-    "Stat": "energy",
-    "descpriority": 61,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr1d",
-    "descstr2": null
-  },
-  {
-    "item_id": 2,
+    "descstrpos": "ModStr1b",
     "Stat": "dexterity",
+    "maxvalue": 100,
+    "item_id": 2,
+    "desnew": "value 敏捷",
     "descpriority": 65,
-    "descfunc": 1,
     "descval": 1,
-    "descstrpos": "ModStr1b",
-    "descstr2": null
+    "descfunc": 1,
+    "column": "dex"
   },
   {
-    "item_id": 3,
-    "Stat": "vitality",
-    "descpriority": 63,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr1c",
-    "descstr2": null
-  },
-  {
-    "item_id": 7,
+    "descstrpos": "ModStr1u",
     "Stat": "maxhp",
+    "maxvalue": 100,
+    "item_id": 7,
+    "desnew": "value 生命",
     "descpriority": 59,
-    "descfunc": 1,
     "descval": 1,
-    "descstrpos": "ModStr1u",
-    "descstr2": null
+    "descfunc": 1,
+    "column": "hp"
   },
   {
-    "item_id": 9,
-    "Stat": "maxmana",
-    "descpriority": 55,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr1e",
-    "descstr2": null
-  },
-  {
-    "item_id": 11,
-    "Stat": "maxstamina",
-    "descpriority": 51,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr5d",
-    "descstr2": null
-  },
-  {
-    "item_id": 16,
+    "descstrpos": "Modstr2v",
     "Stat": "item_armor_percent",
+    "maxvalue": 100,
+    "item_id": 16,
+    "desnew": "value% 强化防御",
     "descpriority": 74,
-    "descfunc": 4,
     "descval": 1,
-    "descstrpos": "Modstr2v",
-    "descstr2": null
+    "descfunc": 4,
+    "column": "acPercent"
   },
   {
-    "item_id": 17,
+    "descstrpos": "ModStr2j",
     "Stat": "item_maxdamage_percent",
+    "maxvalue": 100,
+    "item_id": 17,
+    "desnew": "value% 强化最大伤害",
     "descpriority": 129,
-    "descfunc": 3,
     "descval": 0,
-    "descstrpos": "ModStr2j",
-    "descstr2": null
+    "descfunc": 3,
+    "column": "dmgPercent"
   },
   {
-    "item_id": 18,
-    "Stat": "item_mindamage_percent",
-    "descpriority": 130,
-    "descfunc": 3,
-    "descval": 0,
     "descstrpos": "ModStr2k",
-    "descstr2": null
+    "Stat": "item_mindamage_percent",
+    "maxvalue": 100,
+    "item_id": 18,
+    "desnew": "value% 强化最小伤害",
+    "descpriority": 130,
+    "descval": 0,
+    "descfunc": 3,
+"column": "dmgPercent"
   },
+
   {
-    "item_id": 19,
-    "Stat": "tohit",
-    "descpriority": 115,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr1h",
-    "descstr2": null
-  },
-  {
-    "item_id": 20,
-    "Stat": "toblock",
-    "descpriority": 134,
-    "descfunc": 2,
-    "descval": 1,
     "descstrpos": "ModStr3g",
-    "descstr2": null
+    "Stat": "toblock",
+    "maxvalue": 100,
+    "item_id": 20,
+    "desnew": "value% 格挡几率提高",
+    "descpriority": 134,
+    "descval": 1,
+    "descfunc": 2,
+    "column": "block"
   },
   {
-    "item_id": 21,
+    "descstrpos": "ModStr1g",
     "Stat": "mindamage",
+    "maxvalue": 100,
+    "item_id": 21,
+    "desnew": "value 最小伤害",
     "descpriority": 127,
-    "descfunc": 1,
     "descval": 1,
-    "descstrpos": "ModStr1g",
-    "descstr2": null
+    "descfunc": 1,
+"column": "dmgMin"
   },
   {
-    "item_id": 22,
+    "descstrpos": "ModStr1f",
     "Stat": "maxdamage",
+    "maxvalue": 100,
+    "item_id": 22,
+    "desnew": "value 最大伤害",
     "descpriority": 126,
-    "descfunc": 1,
     "descval": 1,
-    "descstrpos": "ModStr1f",
-    "descstr2": null
+    "descfunc": 1,
+"column": "dmgMax"
   },
   {
-    "item_id": 23,
-    "Stat": "secondary_mindamage",
-    "descpriority": 124,
-    "descfunc": 1,
-    "descval": 1,
     "descstrpos": "ModStr1g",
-    "descstr2": null
+    "Stat": "secondary_mindamage",
+    "maxvalue": 100,
+    "item_id": 23,
+    "desnew": "value 最小伤害",
+    "descpriority": 124,
+    "descval": 1,
+    "descfunc": 1,
+"column": "dmgMin"
   },
   {
-    "item_id": 24,
+    "descstrpos": "ModStr1f",
     "Stat": "secondary_maxdamage",
+    "maxvalue": 100,
+    "item_id": 24,
+    "desnew": "value 最大伤害",
     "descpriority": 123,
-    "descfunc": 1,
     "descval": 1,
-    "descstrpos": "ModStr1f",
-    "descstr2": null
+    "descfunc": 1,
+"column": "dmgMax"
   },
   {
-    "item_id": 27,
-    "Stat": "manarecoverybonus",
-    "descpriority": 52,
-    "descfunc": 2,
-    "descval": 2,
-    "descstrpos": "ModStr4g",
-    "descstr2": null
-  },
-  {
-    "item_id": 28,
-    "Stat": "staminarecoverybonus",
-    "descpriority": 48,
-    "descfunc": 2,
-    "descval": 2,
-    "descstrpos": "ModStr3v",
-    "descstr2": null
-  },
-  {
-    "item_id": 31,
+    "descstrpos": "ModStr1i",
     "Stat": "armorclass",
+    "maxvalue": 100,
+    "item_id": 31,
+    "desnew": "value 防御",
     "descpriority": 71,
-    "descfunc": 1,
     "descval": 1,
-    "descstrpos": "ModStr1i",
-    "descstr2": null
+    "descfunc": 1,
+"column": "ac"
   },
   {
-    "item_id": 32,
-    "Stat": "armorclass_vs_missile",
-    "descpriority": 69,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr6a",
-    "descstr2": null
-  },
-  {
-    "item_id": 33,
-    "Stat": "armorclass_vs_hth",
-    "descpriority": 70,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr6b",
-    "descstr2": null
-  },
-  {
-    "item_id": 34,
+    "descstrpos": "ModStr2u",
     "Stat": "normal_damage_reduction",
+    "maxvalue": 100,
+    "item_id": 34,
+    "desnew": "伤害降低 value",
     "descpriority": 22,
+    "descval": 2,
     "descfunc": 3,
-    "descval": 2,
-    "descstrpos": "ModStr2u",
-    "descstr2": null
+"column": "dmgReduct"
   },
   {
-    "item_id": 35,
-    "Stat": "magic_damage_reduction",
-    "descpriority": 21,
-    "descfunc": 3,
-    "descval": 2,
-    "descstrpos": "ModStr2t",
-    "descstr2": null
-  },
-  {
-    "item_id": 36,
-    "Stat": "damageresist",
-    "descpriority": 22,
-    "descfunc": 2,
-    "descval": 2,
-    "descstrpos": "ModStr2u",
-    "descstr2": null
-  },
-  {
-    "item_id": 37,
-    "Stat": "magicresist",
-    "descpriority": 41,
-    "descfunc": 4,
-    "descval": 2,
-    "descstrpos": "ModStr1m",
-    "descstr2": null
-  },
-  {
-    "item_id": 38,
-    "Stat": "maxmagicresist",
-    "descpriority": 46,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr5x",
-    "descstr2": null
-  },
-  {
-    "item_id": 39,
-    "Stat": "fireresist",
-    "descpriority": 36,
-    "descfunc": 4,
-    "descval": 2,
-    "descstrpos": "ModStr1j",
-    "descstr2": null
-  },
-  {
-    "item_id": 40,
-    "Stat": "maxfireresist",
-    "descpriority": 42,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr5u",
-    "descstr2": null
-  },
-  {
-    "item_id": 41,
-    "Stat": "lightresist",
-    "descpriority": 38,
-    "descfunc": 4,
-    "descval": 2,
-    "descstrpos": "ModStr1l",
-    "descstr2": null
-  },
-  {
-    "item_id": 42,
-    "Stat": "maxlightresist",
-    "descpriority": 43,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr5w",
-    "descstr2": null
-  },
-  {
-    "item_id": 43,
-    "Stat": "coldresist",
-    "descpriority": 40,
-    "descfunc": 4,
-    "descval": 2,
-    "descstrpos": "ModStr1k",
-    "descstr2": null
-  },
-  {
-    "item_id": 44,
-    "Stat": "maxcoldresist",
-    "descpriority": 44,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr5v",
-    "descstr2": null
-  },
-  {
-    "item_id": 45,
-    "Stat": "poisonresist",
-    "descpriority": 34,
-    "descfunc": 4,
-    "descval": 2,
-    "descstrpos": "ModStr1n",
-    "descstr2": null
-  },
-  {
-    "item_id": 46,
-    "Stat": "maxpoisonresist",
-    "descpriority": 45,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr5y",
-    "descstr2": null
-  },
-  {
-    "item_id": 48,
-    "Stat": "firemindam",
-    "descpriority": 102,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr1p",
-    "descstr2": null
-  },
-  {
-    "item_id": 49,
-    "Stat": "firemaxdam",
-    "descpriority": 101,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr1o",
-    "descstr2": null
-  },
-  {
-    "item_id": 50,
-    "Stat": "lightmindam",
-    "descpriority": 99,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr1r",
-    "descstr2": null
-  },
-  {
-    "item_id": 51,
-    "Stat": "lightmaxdam",
-    "descpriority": 98,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr1q",
-    "descstr2": null
-  },
-  {
-    "item_id": 52,
-    "Stat": "magicmindam",
-    "descpriority": 104,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "strModMagicDamage",
-    "descstr2": null
-  },
-  {
-    "item_id": 53,
-    "Stat": "magicmaxdam",
-    "descpriority": 103,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "strModMagicDamage",
-    "descstr2": null
-  },
-  {
-    "item_id": 54,
-    "Stat": "coldmindam",
-    "descpriority": 96,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr1t",
-    "descstr2": null
-  },
-  {
-    "item_id": 55,
-    "Stat": "coldmaxdam",
-    "descpriority": 95,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr1s",
-    "descstr2": null
-  },
-  {
-    "item_id": 57,
-    "Stat": "poisonmindam",
-    "descpriority": 92,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr4i",
-    "descstr2": null
-  },
-  {
-    "item_id": 58,
-    "Stat": "poisonmaxdam",
-    "descpriority": 91,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr4h",
-    "descstr2": null
-  },
-  {
-    "item_id": 60,
-    "Stat": "lifedrainmindam",
-    "descpriority": 88,
-    "descfunc": 2,
-    "descval": 1,
     "descstrpos": "ModStr2z",
-    "descstr2": null
-  },
-  {
-    "item_id": 62,
-    "Stat": "manadrainmindam",
-    "descpriority": 89,
-    "descfunc": 2,
+    "Stat": "lifedrainmindam",
+    "maxvalue": 100,
+    "item_id": 60,
+    "desnew": "value% 击中时偷取生命",
+    "descpriority": 88,
     "descval": 1,
-    "descstrpos": "ModStr2y",
-    "descstr2": null
-  },
-  {
-    "item_id": 74,
-    "Stat": "hpregen",
-    "descpriority": 56,
-    "descfunc": 1,
-    "descval": 2,
-    "descstrpos": "ModStr2l",
-    "descstr2": null
-  },
-  {
-    "item_id": 75,
-    "Stat": "item_maxdurability_percent",
-    "descpriority": 3,
     "descfunc": 2,
-    "descval": 2,
-    "descstrpos": "ModStr2i",
-    "descstr2": null
+"column": "lifesteal"
   },
   {
-    "item_id": 76,
-    "Stat": "item_maxhp_percent",
-    "descpriority": 58,
-    "descfunc": 2,
-    "descval": 2,
     "descstrpos": "ModStr2g",
-    "descstr2": null
-  },
-  {
-    "item_id": 77,
-    "Stat": "item_maxmana_percent",
-    "descpriority": 54,
-    "descfunc": 2,
+    "Stat": "item_maxhp_percent",
+    "maxvalue": 100,
+    "item_id": 76,
+    "desnew": "+value% 生命最大值",
+    "descpriority": 58,
     "descval": 2,
-    "descstrpos": "ModStr2h",
-    "descstr2": null
+    "descfunc": 2,
+"column": "hpPercent"
   },
   {
-    "item_id": 78,
+    "descstrpos": "ModStr1v",
     "Stat": "item_attackertakesdamage",
+    "maxvalue": 100,
+    "item_id": 78,
+    "desnew": "攻击者受到 value 点伤害",
     "descpriority": 13,
-    "descfunc": 3,
     "descval": 2,
-    "descstrpos": "ModStr1v",
-    "descstr2": null
+    "descfunc": 3,
+"column": "thorns"
   },
   {
-    "item_id": 79,
+    "descstrpos": "ModStr1w",
     "Stat": "item_goldbonus",
+    "maxvalue": 100,
+    "item_id": 79,
+    "desnew": "value% 怪物额外掉落金币",
     "descpriority": 10,
-    "descfunc": 2,
     "descval": 1,
-    "descstrpos": "ModStr1w",
-    "descstr2": null
+    "descfunc": 2,
+"column": "goldPercent"
   },
   {
-    "item_id": 80,
+    "descstrpos": "ModStr1x",
     "Stat": "item_magicbonus",
+    "maxvalue": 100,
+    "item_id": 80,
+    "desnew": "value% 额外几率获得魔法物品",
     "descpriority": 8,
+    "descval": 1,
     "descfunc": 2,
-    "descval": 1,
-    "descstrpos": "ModStr1x",
-    "descstr2": null
+"column": "magPercent"
   },
   {
-    "item_id": 81,
-    "Stat": "item_knockback",
-    "descpriority": 76,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStr1y",
-    "descstr2": null
-  },
-  {
-    "item_id": 83,
-    "Stat": "item_addclassskills",
-    "descpriority": 150,
-    "descfunc": 13,
-    "descval": 1,
-    "descstrpos": "ModStr3a",
-    "descstr2": null
-  },
-  {
-    "item_id": 85,
-    "Stat": "item_addexperience",
-    "descpriority": 11,
-    "descfunc": 4,
-    "descval": 1,
     "descstrpos": "Moditem2ExpG",
-    "descstr2": null
-  },
-  {
-    "item_id": 86,
-    "Stat": "item_healafterkill",
-    "descpriority": 16,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModitemHPaK",
-    "descstr2": null
-  },
-  {
-    "item_id": 87,
-    "Stat": "item_reducedprices",
-    "descpriority": 8,
-    "descfunc": 2,
-    "descval": 2,
-    "descstrpos": "ModitemRedVendP",
-    "descstr2": null
-  },
-  {
-    "item_id": 89,
-    "Stat": "item_lightradius",
-    "descpriority": 6,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr3f",
-    "descstr2": null
-  },
-  {
-    "item_id": 91,
-    "Stat": "item_req_percent",
-    "descpriority": 0,
-    "descfunc": 4,
-    "descval": 2,
-    "descstrpos": "ModStr3h",
-    "descstr2": null
-  },
-  {
-    "item_id": 93,
-    "Stat": "item_fasterattackrate",
-    "descpriority": 145,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr4m",
-    "descstr2": null
-  },
-  {
-    "item_id": 96,
-    "Stat": "item_fastermovevelocity",
-    "descpriority": 148,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr4s",
-    "descstr2": null
-  },
-  {
-    "item_id": 99,
-    "Stat": "item_fastergethitrate",
-    "descpriority": 139,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr4p",
-    "descstr2": null
-  },
-  {
-    "item_id": 102,
-    "Stat": "item_fasterblockrate",
-    "descpriority": 136,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr4y",
-    "descstr2": null
-  },
-  {
-    "item_id": 105,
-    "Stat": "item_fastercastrate",
-    "descpriority": 142,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr4v",
-    "descstr2": null
-  },
-  {
-    "item_id": 108,
-    "Stat": "item_restinpeace",
-    "descpriority": 81,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModitemSMRIP",
-    "descstr2": null
-  },
-  {
-    "item_id": 110,
-    "Stat": "item_poisonlengthresist",
-    "descpriority": 18,
-    "descfunc": 2,
-    "descval": 2,
-    "descstrpos": "ModStr3r",
-    "descstr2": null
-  },
-  {
-    "item_id": 111,
-    "Stat": "item_normaldamage",
-    "descpriority": 122,
-    "descfunc": 1,
-    "descval": 2,
-    "descstrpos": "ModStr5b",
-    "descstr2": null
-  },
-  {
-    "item_id": 112,
-    "Stat": "item_howl",
-    "descpriority": 79,
-    "descfunc": 5,
-    "descval": 2,
-    "descstrpos": "ModStr3u",
-    "descstr2": null
-  },
-  {
-    "item_id": 113,
-    "Stat": "item_stupidity",
-    "descpriority": 80,
-    "descfunc": 12,
-    "descval": 2,
-    "descstrpos": "ModStr6d",
-    "descstr2": null
-  },
-  {
-    "item_id": 114,
-    "Stat": "item_damagetomana",
+    "Stat": "item_addexperience",
+    "maxvalue": 100,
+    "item_id": 85,
+    "desnew": "value% 获得的经验",
     "descpriority": 11,
-    "descfunc": 2,
     "descval": 1,
-    "descstrpos": "ModStr3w",
-    "descstr2": null
-  },
-  {
-    "item_id": 115,
-    "Stat": "item_ignoretargetac",
-    "descpriority": 119,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStr3y",
-    "descstr2": null
-  },
-  {
-    "item_id": 116,
-    "Stat": "item_fractionaltargetac",
-    "descpriority": 118,
-    "descfunc": 20,
-    "descval": 1,
-    "descstrpos": "ModStr5o",
-    "descstr2": null
-  },
-  {
-    "item_id": 117,
-    "Stat": "item_preventheal",
-    "descpriority": 81,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStr4a",
-    "descstr2": null
-  },
-  {
-    "item_id": 118,
-    "Stat": "item_halffreezeduration",
-    "descpriority": 19,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStr4b",
-    "descstr2": null
-  },
-  {
-    "item_id": 119,
-    "Stat": "item_tohit_percent",
-    "descpriority": 117,
-    "descfunc": 2,
-    "descval": 1,
-    "descstrpos": "ModStr4c",
-    "descstr2": null
-  },
-  {
-    "item_id": 120,
-    "Stat": "item_damagetargetac",
-    "descpriority": 75,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr4d",
-    "descstr2": null
-  },
-  {
-    "item_id": 121,
-    "Stat": "item_demondamage_percent",
-    "descpriority": 112,
     "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr4e",
-    "descstr2": null
+"column": "addXp"
   },
   {
-    "item_id": 122,
-    "Stat": "item_undeaddamage_percent",
-    "descpriority": 108,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModStr4f",
-    "descstr2": null
-  },
-  {
-    "item_id": 123,
-    "Stat": "item_demon_tohit",
-    "descpriority": 110,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr4j",
-    "descstr2": null
-  },
-  {
-    "item_id": 124,
-    "Stat": "item_undead_tohit",
-    "descpriority": 106,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr4k",
-    "descstr2": null
-  },
-  {
-    "item_id": 125,
-    "Stat": "item_throwable",
-    "descpriority": 5,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStr5a",
-    "descstr2": null
-  },
-  {
-    "item_id": 126,
-    "Stat": "item_elemskill",
-    "descpriority": 157,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr3i",
-    "descstr2": null
-  },
-  {
-    "item_id": 127,
-    "Stat": "item_allskills",
-    "descpriority": 158,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr3k",
-    "descstr2": null
-  },
-  {
-    "item_id": 128,
-    "Stat": "item_attackertakeslightdamage",
-    "descpriority": 14,
-    "descfunc": 3,
-    "descval": 2,
-    "descstrpos": "ModStr3j",
-    "descstr2": null
-  },
-  {
-    "item_id": 134,
-    "Stat": "item_freeze",
-    "descpriority": 78,
-    "descfunc": 12,
-    "descval": 2,
-    "descstrpos": "ModStr3l",
-    "descstr2": null
-  },
-  {
-    "item_id": 135,
-    "Stat": "item_openwounds",
-    "descpriority": 83,
-    "descfunc": 2,
-    "descval": 1,
-    "descstrpos": "ModStr3m",
-    "descstr2": null
-  },
-  {
-    "item_id": 136,
-    "Stat": "item_crushingblow",
-    "descpriority": 87,
-    "descfunc": 2,
-    "descval": 1,
-    "descstrpos": "ModStr5c",
-    "descstr2": null
-  },
-  {
-    "item_id": 137,
-    "Stat": "item_kickdamage",
-    "descpriority": 121,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr5e",
-    "descstr2": null
-  },
-  {
-    "item_id": 138,
-    "Stat": "item_manaafterkill",
+    "descstrpos": "ModitemHPaK",
+    "Stat": "item_healafterkill",
+    "maxvalue": 100,
+    "item_id": 86,
+    "desnew": "value 每次消灭恢复的生命",
     "descpriority": 16,
+    "descval": 1,
     "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr5f",
-    "descstr2": null
+"column": "healKill"
   },
   {
-    "item_id": 139,
-    "Stat": "item_healafterdemonkill",
-    "descpriority": 15,
-    "descfunc": 1,
+    "descstrpos": "ModStr4m",
+    "Stat": "item_fasterattackrate",
+    "maxvalue": 100,
+    "item_id": 93,
+    "desnew": "value% 提高攻击速度",
+    "descpriority": 145,
     "descval": 1,
-    "descstrpos": "ModStr6c",
-    "descstr2": null
+    "descfunc": 4,
+"column": "swing1"
   },
   {
-    "item_id": 141,
-    "Stat": "item_deadlystrike",
-    "descpriority": 85,
-    "descfunc": 2,
-    "descval": 1,
-    "descstrpos": "ModStr5q",
-    "descstr2": null
-  },
-  {
-    "item_id": 142,
-    "Stat": "item_absorbfire_percent",
-    "descpriority": 23,
-    "descfunc": 2,
+    "descstrpos": "ModStr5b",
+    "Stat": "item_normaldamage",
+    "maxvalue": 100,
+    "item_id": 111,
+    "desnew": "伤害 value",
+    "descpriority": 122,
     "descval": 2,
-    "descstrpos": "ModStr5g",
-    "descstr2": null
-  },
-  {
-    "item_id": 143,
-    "Stat": "item_absorbfire",
-    "descpriority": 27,
     "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr5h",
-    "descstr2": null
+"column": "att"
   },
   {
-    "item_id": 144,
-    "Stat": "item_absorblight_percent",
-    "descpriority": 24,
-    "descfunc": 2,
-    "descval": 2,
-    "descstrpos": "ModStr5i",
-    "descstr2": null
-  },
-  {
-    "item_id": 145,
-    "Stat": "item_absorblight",
-    "descpriority": 29,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr5j",
-    "descstr2": null
-  },
-  {
-    "item_id": 146,
-    "Stat": "item_absorbmagic_percent",
-    "descpriority": 26,
-    "descfunc": 2,
-    "descval": 2,
-    "descstrpos": "ModStr5k",
-    "descstr2": null
-  },
-  {
-    "item_id": 147,
-    "Stat": "item_absorbmagic",
-    "descpriority": 33,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr5l",
-    "descstr2": null
-  },
-  {
-    "item_id": 148,
-    "Stat": "item_absorbcold_percent",
-    "descpriority": 25,
-    "descfunc": 2,
-    "descval": 2,
-    "descstrpos": "ModStr5m",
-    "descstr2": null
-  },
-  {
-    "item_id": 149,
-    "Stat": "item_absorbcold",
-    "descpriority": 31,
-    "descfunc": 1,
-    "descval": 1,
-    "descstrpos": "ModStr5n",
-    "descstr2": null
-  },
-  {
-    "item_id": 150,
-    "Stat": "item_slow",
-    "descpriority": 77,
-    "descfunc": 2,
-    "descval": 2,
-    "descstrpos": "ModStr5r",
-    "descstr2": null
-  },
-  {
-    "item_id": 151,
-    "Stat": "item_aura",
-    "descpriority": 159,
-    "descfunc": 16,
+    "descstrpos": "ModStr3y",
+    "Stat": "item_ignoretargetac",
+    "maxvalue": 100,
+    "item_id": 115,
+    "desnew": "忽略目标的防御",
+    "descpriority": 119,
     "descval": 0,
-    "descstrpos": "ModitemAura",
-    "descstr2": null
-  },
-  {
-    "item_id": 152,
-    "Stat": "item_indesctructible",
-    "descpriority": 160,
     "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStre9s",
-    "descstr2": null
+"column": "ignoreAc"
   },
   {
-    "item_id": 153,
-    "Stat": "item_cannotbefrozen",
-    "descpriority": 20,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStr5z",
-    "descstr2": null
-  },
-  {
-    "item_id": 154,
-    "Stat": "item_staminadrainpct",
-    "descpriority": 49,
-    "descfunc": 2,
+    "descstrpos": "ModStr5o",
+    "Stat": "item_fractionaltargetac",
+    "maxvalue": 100,
+    "item_id": 116,
+    "desnew": "-value% 目标防御",
+    "descpriority": 118,
     "descval": 1,
-    "descstrpos": "ModStr6e",
-    "descstr2": null
+    "descfunc": 20,
+"column": "reduceAc"
   },
   {
-    "item_id": 155,
-    "Stat": "item_reanimate",
-    "descpriority": 17,
-    "descfunc": 23,
-    "descval": 1,
-    "descstrpos": "Moditemreanimas",
-    "descstr2": null
-  },
-  {
-    "item_id": 156,
-    "Stat": "item_pierce",
-    "descpriority": 132,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStr6g",
-    "descstr2": null
-  },
-  {
-    "item_id": 157,
-    "Stat": "item_magicarrow",
-    "descpriority": 131,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStr6h",
-    "descstr2": null
-  },
-  {
-    "item_id": 158,
-    "Stat": "item_explosivearrow",
-    "descpriority": 133,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStr6i",
-    "descstr2": null
-  },
-  {
-    "item_id": 179,
-    "Stat": "attack_vs_montype",
-    "descpriority": 108,
-    "descfunc": 22,
-    "descval": 1,
-    "descstrpos": "ModitemAttratvsM",
-    "descstr2": null
-  },
-  {
-    "item_id": 180,
-    "Stat": "damage_vs_montype",
-    "descpriority": 106,
-    "descfunc": 22,
-    "descval": 1,
-    "descstrpos": "Moditemdamvsm",
-    "descstr2": null
-  },
-
-  {
-    "item_id": 214,
-    "Stat": "item_armor_perlevel",
-    "descpriority": 72,
-    "descfunc": 6,
-    "descval": 1,
     "descstrpos": "ModStr1i",
-    "descstr2": "increaseswithplaylevelX"
+    "Stat": "item_armor_perlevel",
+    "descstr2": "increaseswithplaylevelX",
+    "maxvalue": 100,
+    "item_id": 214,
+    "desnew": "value 防御",
+    "descpriority": 72,
+    "descval": 1,
+    "descfunc": 6,
+"column": "ac"
   },
   {
-    "item_id": 215,
-    "Stat": "item_armorpercent_perlevel",
-    "descpriority": 73,
-    "descfunc": 8,
-    "descval": 1,
     "descstrpos": "Modstr2v",
-    "descstr2": "increaseswithplaylevelX"
+    "Stat": "item_armorpercent_perlevel",
+    "descstr2": "increaseswithplaylevelX",
+    "maxvalue": 100,
+    "item_id": 215,
+    "desnew": "value% 强化防御",
+    "descpriority": 73,
+    "descval": 1,
+    "descfunc": 8,
+"column": "acPercent"
   },
   {
-    "item_id": 216,
-    "Stat": "item_hp_perlevel",
-    "descpriority": 57,
-    "descfunc": 6,
-    "descval": 1,
     "descstrpos": "ModStr1u",
-    "descstr2": "increaseswithplaylevelX"
+    "Stat": "item_hp_perlevel",
+    "descstr2": "increaseswithplaylevelX",
+    "maxvalue": 100,
+    "item_id": 216,
+    "desnew": "value 生命",
+    "descpriority": 57,
+    "descval": 1,
+    "descfunc": 6,
+"column": "hp"
   },
   {
-    "item_id": 217,
-    "Stat": "item_mana_perlevel",
-    "descpriority": 53,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStr1e",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 218,
-    "Stat": "item_maxdamage_perlevel",
-    "descpriority": 125,
-    "descfunc": 6,
-    "descval": 1,
     "descstrpos": "ModStr1f",
-    "descstr2": "increaseswithplaylevelX"
+    "Stat": "item_maxdamage_perlevel",
+    "descstr2": "increaseswithplaylevelX",
+    "maxvalue": 100,
+    "item_id": 218,
+    "desnew": "value 最大伤害",
+    "descpriority": 125,
+    "descval": 1,
+    "descfunc": 6,
+"column": "dmgMax"
   },
   {
-    "item_id": 219,
-    "Stat": "item_maxdamage_percent_perlevel",
-    "descpriority": 128,
-    "descfunc": 8,
-    "descval": 1,
     "descstrpos": "ModStr2j",
-    "descstr2": "increaseswithplaylevelX"
+    "Stat": "item_maxdamage_percent_perlevel",
+    "descstr2": "increaseswithplaylevelX",
+    "maxvalue": 100,
+    "item_id": 219,
+    "desnew": "value% 强化最大伤害",
+    "descpriority": 128,
+    "descval": 1,
+    "descfunc": 8,
+"column": "dmgPercent"
   },
   {
-    "item_id": 220,
-    "Stat": "item_strength_perlevel",
-    "descpriority": 66,
-    "descfunc": 6,
-    "descval": 1,
     "descstrpos": "ModStr1a",
-    "descstr2": "increaseswithplaylevelX"
+    "Stat": "item_strength_perlevel",
+    "descstr2": "increaseswithplaylevelX",
+    "maxvalue": 100,
+    "item_id": 220,
+    "desnew": "value 力量",
+    "descpriority": 66,
+    "descval": 1,
+    "descfunc": 6,
+"column": "str"
   },
   {
-    "item_id": 221,
-    "Stat": "item_dexterity_perlevel",
-    "descpriority": 64,
-    "descfunc": 6,
-    "descval": 1,
     "descstrpos": "ModStr1b",
-    "descstr2": "increaseswithplaylevelX"
+    "Stat": "item_dexterity_perlevel",
+    "descstr2": "increaseswithplaylevelX",
+    "maxvalue": 100,
+    "item_id": 221,
+    "desnew": "value 敏捷",
+    "descpriority": 64,
+    "descval": 1,
+    "descfunc": 6,
+"column": "dex"
   },
   {
-    "item_id": 222,
-    "Stat": "item_energy_perlevel",
-    "descpriority": 60,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStr1d",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 223,
-    "Stat": "item_vitality_perlevel",
-    "descpriority": 62,
-    "descfunc": 6,
-    "descval": 1,
     "descstrpos": "ModStr1c",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 224,
-    "Stat": "item_tohit_perlevel",
-    "descpriority": 114,
+    "Stat": "item_vitality_perlevel",
+    "descstr2": "increaseswithplaylevelX",
+    "maxvalue": 100,
+    "item_id": 223,
+    "desnew": "value 活力",
+    "descpriority": 62,
+    "descval": 1,
     "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStr1h",
-    "descstr2": "increaseswithplaylevelX"
+"column": "vit"
   },
   {
-    "item_id": 225,
-    "Stat": "item_tohitpercent_perlevel",
-    "descpriority": 116,
-    "descfunc": 7,
-    "descval": 1,
-    "descstrpos": "ModStr4c",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 226,
-    "Stat": "item_cold_damagemax_perlevel",
-    "descpriority": 94,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStr1s",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 227,
-    "Stat": "item_fire_damagemax_perlevel",
-    "descpriority": 100,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStr1o",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 228,
-    "Stat": "item_ltng_damagemax_perlevel",
-    "descpriority": 97,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStr1q",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 229,
-    "Stat": "item_pois_damagemax_perlevel",
-    "descpriority": 90,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStr4h",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 230,
-    "Stat": "item_resist_cold_perlevel",
-    "descpriority": 39,
-    "descfunc": 7,
-    "descval": 2,
-    "descstrpos": "ModStr1k",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 231,
-    "Stat": "item_resist_fire_perlevel",
-    "descpriority": 35,
-    "descfunc": 7,
-    "descval": 2,
-    "descstrpos": "ModStr1j",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 232,
-    "Stat": "item_resist_ltng_perlevel",
-    "descpriority": 37,
-    "descfunc": 7,
-    "descval": 2,
-    "descstrpos": "ModStr1l",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 233,
-    "Stat": "item_resist_pois_perlevel",
-    "descpriority": 33,
-    "descfunc": 7,
-    "descval": 2,
-    "descstrpos": "ModStr1n",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 234,
-    "Stat": "item_absorb_cold_perlevel",
-    "descpriority": 32,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStre9p",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 235,
-    "Stat": "item_absorb_fire_perlevel",
-    "descpriority": 28,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStre9o",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 236,
-    "Stat": "item_absorb_ltng_perlevel",
-    "descpriority": 30,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStre9q",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 238,
-    "Stat": "item_thorns_perlevel",
-    "descpriority": 12,
-    "descfunc": 9,
-    "descval": 2,
     "descstrpos": "ModStr1v",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 239,
-    "Stat": "item_find_gold_perlevel",
-    "descpriority": 9,
-    "descfunc": 7,
-    "descval": 1,
-    "descstrpos": "ModStr1w",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 240,
-    "Stat": "item_find_magic_perlevel",
-    "descpriority": 7,
-    "descfunc": 7,
-    "descval": 1,
-    "descstrpos": "ModStr1x",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 241,
-    "Stat": "item_regenstamina_perlevel",
-    "descpriority": 47,
-    "descfunc": 8,
+    "Stat": "item_thorns_perlevel",
+    "descstr2": "increaseswithplaylevelX",
+    "maxvalue": 100,
+    "item_id": 238,
+    "desnew": "攻击者受到 value 点伤害",
+    "descpriority": 12,
     "descval": 2,
-    "descstrpos": "ModStr3v",
-    "descstr2": "increaseswithplaylevelX"
+    "descfunc": 9,
+"column": "thorns"
   },
   {
-    "item_id": 242,
-    "Stat": "item_stamina_perlevel",
-    "descpriority": 50,
-    "descfunc": 6,
+    "descstrpos": "ModStr1w",
+    "Stat": "item_find_gold_perlevel",
+    "descstr2": "increaseswithplaylevelX",
+    "maxvalue": 100,
+    "item_id": 239,
+    "desnew": "value% 怪物额外掉落金币",
+    "descpriority": 9,
     "descval": 1,
-    "descstrpos": "ModStr5d",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 243,
-    "Stat": "item_damage_demon_perlevel",
-    "descpriority": 111,
-    "descfunc": 8,
-    "descval": 1,
-    "descstrpos": "ModStr4e",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 244,
-    "Stat": "item_damage_undead_perlevel",
-    "descpriority": 107,
-    "descfunc": 8,
-    "descval": 1,
-    "descstrpos": "ModStr4f",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 245,
-    "Stat": "item_tohit_demon_perlevel",
-    "descpriority": 109,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStr4j",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 246,
-    "Stat": "item_tohit_undead_perlevel",
-    "descpriority": 105,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStr4k",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 247,
-    "Stat": "item_crushingblow_perlevel",
-    "descpriority": 86,
     "descfunc": 7,
-    "descval": 1,
-    "descstrpos": "ModStr5c",
-    "descstr2": "increaseswithplaylevelX"
+"column": "goldPercent"
   },
   {
-    "item_id": 248,
-    "Stat": "item_openwounds_perlevel",
-    "descpriority": 82,
+    "descstrpos": "ModStr1x",
+    "Stat": "item_find_magic_perlevel",
+    "descstr2": "increaseswithplaylevelX",
+    "maxvalue": 100,
+    "item_id": 240,
+    "desnew": "value% 额外几率获得魔法物品",
+    "descpriority": 7,
+    "descval": 1,
     "descfunc": 7,
-    "descval": 1,
-    "descstrpos": "ModStr3m",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 249,
-    "Stat": "item_kick_damage_perlevel",
-    "descpriority": 120,
-    "descfunc": 6,
-    "descval": 1,
-    "descstrpos": "ModStr5e",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 250,
-    "Stat": "item_deadlystrike_perlevel",
-    "descpriority": 84,
-    "descfunc": 7,
-    "descval": 1,
-    "descstrpos": "ModStr5q",
-    "descstr2": "increaseswithplaylevelX"
-  },
-  {
-    "item_id": 252,
-    "Stat": "item_replenish_durability",
-    "descpriority": 1,
-    "descfunc": 11,
-    "descval": 0,
-    "descstrpos": "ModStre9t",
-    "descstr2": null
-  },
-  {
-    "item_id": 253,
-    "Stat": "item_replenish_quantity",
-    "descpriority": 2,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStre9v",
-    "descstr2": null
-  },
-  {
-    "item_id": 254,
-    "Stat": "item_extra_stack",
-    "descpriority": 4,
-    "descfunc": 3,
-    "descval": 0,
-    "descstrpos": "ModStre9i",
-    "descstr2": null
-  },
-
-  {
-    "item_id": 289,
-    "Stat": "item_absorb_fire_bytime",
-    "descpriority": 180,
-    "descfunc": 18,
-    "descval": 1,
-    "descstrpos": "ModStre9o",
-    "descstr2": null
-  },
-  {
-    "item_id": 305,
-    "Stat": "item_pierce_cold",
-    "descpriority": 88,
-    "descfunc": 20,
-    "descval": 1,
-    "descstrpos": "Moditemenrescoldsk",
-    "descstr2": null
-  },
-  {
-    "item_id": 306,
-    "Stat": "item_pierce_fire",
-    "descpriority": 88,
-    "descfunc": 20,
-    "descval": 1,
-    "descstrpos": "Moditemenresfiresk",
-    "descstr2": null
-  },
-  {
-    "item_id": 307,
-    "Stat": "item_pierce_ltng",
-    "descpriority": 88,
-    "descfunc": 20,
-    "descval": 1,
-    "descstrpos": "Moditemenresltngsk",
-    "descstr2": null
-  },
-  {
-    "item_id": 308,
-    "Stat": "item_pierce_pois",
-    "descpriority": 88,
-    "descfunc": 20,
-    "descval": 1,
-    "descstrpos": "Moditemenrespoissk",
-    "descstr2": null
-  },
-  {
-    "item_id": 329,
-    "Stat": "passive_fire_mastery",
-    "descpriority": 88,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModitemdamFiresk",
-    "descstr2": null
-  },
-  {
-    "item_id": 330,
-    "Stat": "passive_ltng_mastery",
-    "descpriority": 88,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModitemdamLtngsk",
-    "descstr2": null
-  },
-  {
-    "item_id": 331,
-    "Stat": "passive_cold_mastery",
-    "descpriority": 88,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModitemdamColdsk",
-    "descstr2": null
-  },
-  {
-    "item_id": 332,
-    "Stat": "passive_pois_mastery",
-    "descpriority": 88,
-    "descfunc": 4,
-    "descval": 1,
-    "descstrpos": "ModitemdamPoissk",
-    "descstr2": null
-  },
-  {
-    "item_id": 333,
-    "Stat": "passive_fire_pierce",
-    "descpriority": 88,
-    "descfunc": 20,
-    "descval": 1,
-    "descstrpos": "Moditemenresfiresk",
-    "descstr2": null
-  },
-  {
-    "item_id": 334,
-    "Stat": "passive_ltng_pierce",
-    "descpriority": 88,
-    "descfunc": 20,
-    "descval": 1,
-    "descstrpos": "Moditemenresltngsk",
-    "descstr2": null
-  },
-  {
-    "item_id": 335,
-    "Stat": "passive_cold_pierce",
-    "descpriority": 88,
-    "descfunc": 20,
-    "descval": 1,
-    "descstrpos": "Moditemenrescoldsk",
-    "descstr2": null
-  },
-  {
-    "item_id": 336,
-    "Stat": "passive_pois_pierce",
-    "descpriority": 88,
-    "descfunc": 20,
-    "descval": 1,
-    "descstrpos": "Moditemenrespoissk",
-    "descstr2": null
+"column": "magPercent"
   }
 ]
