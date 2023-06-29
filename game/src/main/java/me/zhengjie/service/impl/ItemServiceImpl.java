@@ -39,7 +39,7 @@ public class ItemServiceImpl implements GameItemService {
     @Autowired
     private GameEquipmentDetailService gameEquipmentDetailService;
     @Override
-    public GameArmorsDto createItem(GamePlayer player ) {
+    public GameArmorsDto createItem(GamePlayer player) {
         long item = player.getItem();
         //item是0-100的数字，随机数计算是否比item小，小则掉落
         int random = RandomUtils.nextInt(0, 100);

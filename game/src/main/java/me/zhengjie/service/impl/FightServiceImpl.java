@@ -11,10 +11,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.RequiredArgsConstructor;
 import me.zhengjie.content.DataMap;
 import me.zhengjie.domain.*;
-import me.zhengjie.service.ExpService;
-import me.zhengjie.service.FightService;
-import me.zhengjie.service.GameAttributeService;
-import me.zhengjie.service.GameMonsterService;
+import me.zhengjie.service.*;
 import me.zhengjie.service.dto.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +41,8 @@ public class FightServiceImpl implements FightService {
     private GameMonsterService gameMonsterService;
     @Autowired
     private ExpService expService;
+    @Autowired
+    private GameItemService gameItemService;
 
     public GamePlayer buildPlayer(GameCharacterDto character){
 
@@ -155,17 +154,20 @@ public class FightServiceImpl implements FightService {
         if (player.isAlive()) {
             sb.append("战斗结束，玩家胜利！").append("END");
             gameResult.setWin(1);
-            player.setItem(monster.getItem());
+            player.setItem(monster.getItemRate());
+            //计算经验值
+            expService.dealExpAfterBattle(player,monster,gameResult);
+            GameArmorsDto gameArmorsDto = gameItemService.createItem(player);
+            if(gameArmorsDto!=null){
+                sb.append("获得装备：");
+                gameResult.setGameArmorsDto(gameArmorsDto);
+            }
         } else {
             sb.append("战斗结束，怪物胜利！").append("END");
             gameResult.setWin(0);
         }
         gameResult.setBattleLog(sb.toString());
         gameResult.setBattleTime(usedTime);
-        //计算经验值
-        if(gameResult.getWin()==1){
-            expService.dealExpAfterBattle(player,monster,gameResult);
-        }
         long r;
         //计算恢复时间
         if(gameResult.getLevelUp()==1){

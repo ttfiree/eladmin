@@ -2,6 +2,7 @@ package me.zhengjie.domain;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import me.zhengjie.service.dto.GameArmorsDto;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
@@ -23,5 +24,7 @@ public class GameResult {
     private long exp;
 
     private int win;
+
+    private GameArmorsDto gameArmorsDto;
 
 }
